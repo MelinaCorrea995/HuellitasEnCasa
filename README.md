@@ -1,15 +1,19 @@
 # Huellitas En Casa 🐾
 
 ## ¡Bienvenidos a Huellitas En Casa!
+
 Somos una organización comprometida con encontrar hogares amorosos y responsables para gatitos y perritos abandonados o sin hogar. Este proyecto forma parte del Trabajo Integrador Final del curso de Full Stack Developer de Formar.
 
 **Sobre nosotras**
+
 Somos **Albornoz Banquero Jainen** y **Correa Melina**, ambas apasionadas por el bienestar animal. Contamos con experiencia en el cuidado y atención de animales domésticos, y estamos felices de unir esfuerzos para generar un impacto positivo en la vida de estos pequeños amigos. 💖
 
 **Nuestra misión**
+
 Nos enfocamos en rescatar, cuidar y rehabilitar animales en situación de abandono para garantizarles una segunda oportunidad. A través de esta plataforma, buscamos conectar a los adoptantes con sus futuros compañeros de vida, asegurándonos de que reciban el amor y cuidado que merecen.
 
 ## Páginas de referencia 🌐
+
 Aquí compartimos las páginas que inspiraron nuestro diseño y funcionalidad:
 
 [Adopteros Argentina](https://www.adopterosargentina.com/)
@@ -30,5 +34,6 @@ Combinación de funcionalidades prácticas y mensajes emotivos que inspiran conf
 Estas páginas se destacan por su compromiso con el bienestar animal, su mensaje claro y su diseño funcional, que nos motivaron a crear una plataforma que combine estética y practicidad.
 
 ## Estructura del proyecto 📂
+
 Carpeta design:
 Incluye este README junto con los recursos visuales como el logo, la paleta de colores y los wireframes de diseño.
