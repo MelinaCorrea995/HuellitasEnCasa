@@ -1,0 +1,20 @@
+{
+  "name": "huellitasencasa",
+  "version": "1.0.0",
+  "description": "Somos una organización comprometida con encontrar hogares amorosos y responsables para gatitos y perritos abandonados o sin hogar. Este proyecto forma parte del Trabajo Integrador Final del curso de Full Stack Developer de Formar.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "nodemon": "^3.1.7",
+    "path": "^0.12.7"
+  }
+}
