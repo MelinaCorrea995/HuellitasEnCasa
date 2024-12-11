@@ -1,42 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/style.css">
-    <title>Hueliitas en casa</title>
-</head>
-<body>
-    <header>
-        <nav>
-        <h1>Huellitas a casa</h1>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../public/style.css" />
+    <title>Huellitas en casa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/4d235eb227.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="shortcut icon" href="/public/images/favicon.ico" type="image/x-icon">
+  <body class="container">
+    <header class="main-header">
+      <nav class="container-nav">
+        <a class="navbar-logo" href="/views/index.html"> <img src="../public/images/huellitas_en_casa-logo.png" class="logo-nav" alt="logo-huellitas"></a>
         <ul>
-            <li>Acerca de</li>
-            
-            <li>Adopción</li>
-            
-            <li>Contacto</li>
-            
-            <li>Voluntariado</li>
-            
-            <li>Formulario pre Adopción</li>
-            
-            <li>Login</li>
+
+          <li><i class="fa-solid fa-paw"></i>Acerca de</li>
+
+          <li><i class="fa-solid fa-paw"></i>Adopción</li>
+
+          <li><i class="fa-solid fa-paw"></i>Contacto</li>
+
+          <li><i class="fa-solid fa-paw"></i>Voluntariado</li>
+
+          <li><i class="fa-solid fa-paw"></i>Formulario pre Adopción</li>
+
+          <li><i class="fa-regular fa-circle-user"></i></li>
+
         </ul>
-    </nav>
+      </nav>
+
+      <!-- <div class="burger-menu">
+        <i class="fa-solid fa-bars"></i>
+    </div> -->
     </header>
-    <main>
-    <h2>Sobre nosotros</h2>
-    <p>Somos un equipo comprometido con el bienestar animal. Nuestra misión es rescatar , cuidar y encontrar
-        hogares amorosos para perros y gatos que han sido abandonados o necesitan una segunda oportunidad .
-        Nos enfocamos en garantizar adopciones responsables , acompañando a los adoptantes en casa paso del camino
-        para conttruir juntos historias llenas de amor y esperanza .
-    </p>
-    <form action="buscar" method="get" id="search-form"><input type="text" id="search" name="search"
-        placeholder="Buscar por zona o nombre"><i class="fa-solid fa-magnifying-glass"></i>
-    </form>
+    <main class="contenido">
+      <h2>Sobre nosotras</h2>
+      <p>
+        Somos un equipo comprometido con el bienestar animal. Nuestra misión es
+        rescatar , cuidar y encontrar hogares amorosos para perros y gatos que
+        han sido abandonados o necesitan una segunda oportunidad . Nos enfocamos
+        en garantizar adopciones responsables , acompañando a los adoptantes en
+        casa paso del camino para conttruir juntos historias llenas de amor y
+        esperanza .
+      </p>
+      <form action="buscar" method="get" id="search-form">
+        <input
+          type="text"
+          id="search"
+          name="search"
+          placeholder="Buscar por zona o nombre"
+        /><i class="fa-solid fa-magnifying-glass"></i>
+      </form>
+
+      <!-- Sección Animales en adopción -->
+
+      <section class="animal-container">
+        <h2>Animales en Adopción</h2>
+        <div class="animales">
+        <article class="animal">
+            <img src="/public/images/aragorn-adopcion.jpg" alt="img-perro-marron-adulto">
+            <div class="detalles-animal">
+              <i class="fa-solid fa-heart"></i>
+              <h3>Aragorn</h3>
+              <h4>Adopción responsable</h4>
+                <div class="descripcion-animal">
+                    <p class="sexo">Sexo: Macho</p>
+                    <p class="edad">Edad : 4 años aprox.</p>
+                    <p class="zona">Zona : Lanús</p>
+                    <button><i class="fa-solid fa-bone"></i> Leer más </button>
+                </div>
+            </div>
+</article>
+<!-- Meli: A partir de acá copia y pega para los otros 6 animales. Rellena las secciones sexo, edad y zona a tu gusto! -->
+
+<article class="animal">
+  <img src="/public/images/boromir-adopcion.jpg" alt="img-perro-atigrado-cachorro">
+  <div class="detalles-animal">
+    <i class="fa-solid fa-heart"></i>
+    <h3>Boromir</h3>
+    <h4>Adopción responsable</h4>
+    <div class="descripcion-animal">
+      <p class="sexo">Sexo: </p>
+      <p class="edad">Edad : .</p>
+      <p class="zona">Zona : </p>
+      <button><i class="fa-solid fa-bone"></i> Leer más </button>
+  </div>
+  </div>
+</article>
+
+
+<!-- Estas dos etiquetas no las toques! -->
+</div>
+    </section>
+
     </main>
     <footer>
+
+      © 2024 Huellitas en Casa. Todos los derechos reservados.
     </footer>
-</body>
+  </body>
 </html>
