@@ -23,15 +23,15 @@
         <nav class="container-nav">
             <a class="navbar-logo" href="/views/index.html"> <img src="../public/images/huellitas_en_casa-logo.png"
                     class="logo-nav" alt="logo-huellitas"></a>
-            <ul class="nav-lista">
-                <!-- class = nav-lista por que no podia mover los iteems -->
-                <li><i class="fa-solid fa-paw"></i>Acerca de</li>
-                <li><i class="fa-solid fa-paw"></i>Adopción</li>
-                <li><i class="fa-solid fa-paw"></i>Contacto</li>
-                <li><i class="fa-solid fa-paw"></i>Voluntariado</li>
-                <li><i class="fa-solid fa-paw"></i>Formulario pre Adopción</li>
-                <li><i class="fa-regular fa-circle-user"></i></li>
-            </ul>
+                    <ul class="nav-lista">
+                        <li><a href="#about-us"><i class="fa-solid fa-paw"></i> Acerca de</a></li>
+                        <li><a href="#animal-container"><i class="fa-solid fa-paw"></i> Adopción</a></li>
+                        <li><a href="/views/contact.html"><i class="fa-solid fa-paw"></i> Contacto</a></li>
+                        <li><a href="#"><i class="fa-solid fa-paw"></i> Voluntariado</a></li>
+                        <li><a href="/views/preAdopt.html"><i class="fa-solid fa-paw"></i> Formulario pre Adopción</a></li>
+                        <li><a href="./register.html"><i class="fa-regular fa-circle-user"></i> Registrate</a></li>
+                        <li><a href="./login.html"><i class="fa-solid fa-right-to-bracket"></i> Inicia sesión</a></li>
+                    </ul>
         </nav>
     </header>
     <main>
@@ -85,31 +85,34 @@
         </form>
     </main>
     <footer>
-        <img src="../public/images/huellitas_en_casa-logo.png" width="200" alt="Huellitas en casa" id="logo">
-    <div class="footer-container">
-    <div>
-        <h2>Menú</h2>
-        <ul class="footer-lista">
-        <li>Acerca de</li>
-        <li>Adopción</li>
-        <li>Contacto</li>
-        <li>Voluntariado</li>
-        </ul>
-    </div>
-    <div>
-        <h2>Nuestras redes</h2>
-        <ul class="footer-lista">
-        <li>Facebook</li>
-        <li>Instragram</li>
-        <li>Twitter</li>
-        </ul>
-    </div>
-    </div>
-    <!-- otra clase mas para poder mover el news con la barra -->
-    <div class="newsletter">
-    <h3>Suscribite a nuestra newsletter</h3>
-    <input type="text" id="" name="Domicilio" placeholder="">
-    </div>
-    <p>2024 Huellitas a Casa. Todos los derechos reservados.</p>
+        <div class="footer-content">  
+            <img src="../public/images/huellitas_en_casa-logo.png" alt="Huellitas en casa" class="footer-logo"> 
+            <div class="footer-columns"> 
+                <div class="footer-column">
+                    <h2>Menú</h2>
+                    <ul class="footer-list"> 
+                      <li><a href="#about-us"><i class="fa-solid fa-paw"></i> Acerca de</a></li>
+                      <li><a href="#animal-container"><i class="fa-solid fa-paw"></i> Adopción</a></li>
+                      <li><a href="#contacto"><i class="fa-solid fa-paw"></i> Contacto</a></li>
+                      <li><a href="#"><i class="fa-solid fa-paw"></i> Voluntariado</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer-column">
+                    <h2>Nuestras redes</h2>
+                    <ul class="footer-list">
+                        <li><i class="fa-brands fa-square-facebook"></i>Facebook</li>
+                        <li><i class="fa-brands fa-square-instagram"></i>Instagram</li>
+                        <li><i class="fa-brands fa-square-twitter"></i>Twitter</li>
+                        <li><i class="fa-solid fa-envelope"></i>Correo electrónico</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-newsletter"> 
+                <h3>Suscribite a nuestra newsletter</h3>
+                <input type="text" id="newsletter" name="newsletter" placeholder="Ingresa tu correo">
+            </div>
+        </div> 
+        <p class="footer-copyright">© 2024 Huellitas en Casa. Todos los derechos reservados.</p> 
     </footer>
 </body>
