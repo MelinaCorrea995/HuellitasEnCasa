@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "name": "Aragorn",
+    "sex": "Macho",
+    "age": "4 años aprox.",
+    "zone": "Lanús",
+    "description": "Aragorn es un perro adulto tranquilo y sociable que busca un hogar lleno de amor. Buscamos una familia de acogida o adopción que le de a Aragorn un hogar y el cariño que necesita. No importa si hay otros perros, ¡le encanta estar acompañado!",
+    "image": "/public/images/aragorn-adopcion.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Dooku",
+    "sex": "Macho",
+    "age": "3 meses",
+    "zone": "Pilar",
+    "description": "Dooku es un gatito juguetón que se lleva bien con otros animales.",
+    "image": "/public/images/dooku-adopcion.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Boromir",
+    "sex": "Macho",
+    "age": "2 meses",
+    "zone": "Quilmes",
+    "description": "Boromir es muy bueno, un poco dominante y muy gracioso, en busca de una nueva familia de adopción.",
+    "image": "/public/images/boromir-adopcion.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Gala (Galadriel)",
+    "sex": "Hembra",
+    "age": "1 año",
+    "zone": "Polvorines",
+    "description": "Gala es una gatita tranquila y sociable que busca un hogar lleno de amor.",
+    "image": "/public/images/galadriel-adopcion.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Gandalf",
+    "sex": "Macho",
+    "age": "5 años",
+    "zone": "Berazategui",
+    "description": "Gandalf se adapta rápido y es un gran compañero. Le encanta jugar y salir a caminar.",
+    "image": "/public/images/gandalf-adopcion.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Guts",
+    "sex": "Macho",
+    "age": "6 meses",
+    "zone": "Pilar",
+    "description": "Guts tiene una historia difícil, pero su espíritu sigue siendo inquebrantable. Fue adoptado hace un tiempo, pero lamentablemente su familia anterior lo dejó en un parque sin avisar a la protectora. Gracias a su chip, pudimos traerlo de vuelta con nosotros. A pesar de lo que ha pasado, Guts no perdió su fe en las personas. Está listo para encontrar un hogar lleno de amor y compromiso, donde realmente lo valoren como se merece. Este pequeño luchador solo necesita una nueva oportunidad para demostrar lo increíble que es como compañero.",
+    "image": "/public/images/-guts-adopcion.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Legolas",
+    "sex": "Macho",
+    "age": "3 años",
+    "zone": "Hurlingham",
+    "description": "Es un gato muy juguetón y cariñoso, siempre dispuesto a compartir su energía y ternura con quien esté a su lado. ",
+    "image": "/public/images/legolas-adopcion.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Nessa",
+    "sex": "Hembra",
+    "age": "8 meses",
+    "zone": "William Morris",
+    "description": "Es muy tranquila, sociable, duerme y juega mucho, sabe usar la caja de arena y le gusta el pollito.",
+    "image":"public/images/nessa-adopcion.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Padme",
+    "sex": "Hembra",
+    "age": "1 año",
+    "zone": "Devoto",
+    "description": "Buscamos una familia para Padme que le de toda la atención y el amor que merece. Necesitaría una casa donde fuese hija única y sin niños",
+    "image": "/public/images/padme-adopcion.jpg"
+  }
+]

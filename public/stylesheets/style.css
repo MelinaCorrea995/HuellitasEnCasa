@@ -1,0 +1,195 @@
+@import url("index.css");
+@import url("login.css");
+@import url("register.css");
+@import url("adoptCartl.css");
+@import url("adoptDetail.css");
+
+:root {
+  --color-amarillo: #F7E97B; /* para accentos */
+  --color-beige: #FAF3E0; 
+  --color-celeste:  #6ccdfd; /* para accentos*/
+  --color-negro-suave: #1d1c1c; /* para el texto*/
+  --color-verde: #87DC72; /* para el footer*/
+  --color-violeta: #C896EA; /* para el fondo*/
+}
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Cuerpo de página */
+body{
+  width: 95%;
+  background-color: #C896EA;
+  margin-left: 25px;
+}
+.main-header { /* Contenedor principal de la barra de navegación */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  background-color: var(--color-violeta); /* Color de fondo */
+  padding: 1rem 0; /* Espaciado vertical */
+}
+.container-nav{
+  max-width: 1200px; /* Ancho máximo de la barra de navegación */
+  margin: 0 auto; /* Centra horizontalmente */
+  display: flex;
+  justify-content: space-between; /* Distribuye el espacio entre el logo y la lista */
+  align-items: center;
+  padding: 0 20px; /* Espaciado horizontal interno */
+}
+/* logo */
+.logo-nav{
+  max-width: 200px; /* Ancho máximo para evitar que sea demasiado grande */
+  height: auto;
+}
+
+/* listas */
+.nav-lista{
+  font-family: 'Fredoka';
+  list-style-type: none;
+  display: flex;
+  gap: 1rem ;
+}
+.nav-lista li {
+  display: flex;
+  align-items: center; /* Centrar verticalmente */
+  gap: 0.5rem; /* Espacio entre icono y texto */
+  margin: 0 10px; /* Reduce el margen horizontal a 10px */
+  padding: 5px 0;
+}
+.nav-lista li a {
+  text-decoration: none; /* Quitar subrayado */
+  color: var(--color-negro-suave); /* Color del texto */
+  padding: 0.5rem 1rem; /* Espaciado interno para los enlaces */
+  border-radius: 5px; /* Bordes redondeados */
+  letter-spacing: -0.5px;
+  transition: background-color 0.3s ease; /* Transición suave al pasar el mouse */
+}
+.nav-lista li a:hover {
+  background-color: var(--color-amarillo); /* Color de fondo al pasar el mouse */
+}
+#about-us{
+  font-family: 'roboto';
+}
+/* Pie de página */
+footer {
+  background-color: #87DC72; /* Color de fondo (tu especificación) */
+  padding: 20px;
+  font-family: 'fredoka'; /* Fuente (tu especificación) */
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.footer-logo {
+  max-width: 200px;
+  height: auto;
+}
+
+.footer-columns {
+  display: flex;
+  gap: 50px;
+}
+
+.footer-column {
+  text-align: left;
+}
+.footer-column h2 {
+  padding-right: 100px; /* Ajusta este valor según sea necesario */
+}
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list li {
+  margin-bottom: 5px;
+}
+
+.footer-list a { /* Selecciona los enlaces dentro de la lista del footer */
+  text-decoration: none; /* Quita el subrayado */
+  color: inherit; /* Hereda el color del texto del contenedor padre (para que no sea azul) */
+  display: block; /* Hace que el enlace ocupe todo el ancho del li */
+  padding: 5px 0; /* Espaciado vertical */
+}
+
+/* Estilos para el hover (opcional, pero recomendado) */
+.footer-list a:hover {
+  text-decoration: underline; /* Vuelve a aparecer el subrayado al pasar el mouse */
+  color:var(--color-amarillo); /* Cambia el color al pasar el mouse (puedes usar otro color) */
+}
+.footer-newsletter {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.footer-newsletter input[type="text"] {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.footer-copyright {
+  margin-top: 20px;
+  font-size: 0.8em;
+  text-align: center;
+  width: 100%;
+}
+
+/* Media Queries */
+@media (max-width: 480px){
+  .container-nav {
+    flex-direction: column; /* Apilar elementos verticalmente */
+    align-items: flex-start; /* Alinear a la izquierda */
+}
+
+  .nav-lista li {
+      margin-bottom: 1rem; /* Espacio entre elementos */
+  }
+
+  .animal-list{
+      grid-template-columns: 1fr; /* Una columna en pantallas muy pequeñas */
+  }
+}
+
+@media (max-width: 768px) { /* Ejemplo para pantallas pequeñas */
+  .container-nav {
+      flex-direction: column; /* Apilar elementos verticalmente */
+      align-items: flex-start; /* Alinear a la izquierda */
+  }
+
+  .nav-lista {
+      flex-direction: column; /* Apilar elementos de la lista */
+      width: 100%; /* Ocupar todo el ancho */
+      margin-top: 1rem; /* Espacio superior */
+  }
+  .logo-nav{
+      margin: 0 auto;
+  }
+}
+
+/* Media query para pantallas más pequeñas (opcional - ajusta el breakpoint según necesites) */
+@media (max-width: 768px) {
+  .animal-list {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Dos columnas en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px){
+  .animal-list{
+      grid-template-columns: 1fr; /* Una columna en pantallas muy pequeñas */
+  }
+}
+.descripcion-animal{
+  color: var(--color-negro-suave);
+}

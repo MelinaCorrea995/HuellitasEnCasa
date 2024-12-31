@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+
+/* descripción : sobre nosotros */
+#about-us{
+    color: var(--color-negro-suave);
+    background-color: var(--color-celeste);
+    border: 1px solid #C896EA;
+    width: 100%;
+}
+
+#search-form{
+    float: left;
+}
+
+#titulo-container{
+    color: var(--color-negro-suave);
+    font-family: 'Merriweather Sans';
+    width: 100%;
+}
+#animal-container {
+    padding: 20px; /* Espacio alrededor del contenedor */
+}
+
+#titulo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.animal-list { /* Estilos aplicados al contenedor con la clase animal-list */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adaptable a diferentes tamaños de pantalla */
+    grid-gap: 20px;
+    justify-content: center; /* Centrar horizontalmente */
+}
+
+.animal {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sutil sombra */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pets {
+    max-width: 100%; /* Las imágenes no se desbordan */
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.detalles-animal {
+    text-align: center;
+}
+.detalles-animal h4{
+    font-family: 'Merriweather Sans';
+    margin-bottom: 5px;
+}
+.descripcion-animal{
+    font-family: 'roboto';
+    margin-top: 10px;
+}
+
+/* Estilos para la sección de contacto */
+#contacto {
+    padding: 40px 0;
+    background-color: #C896EA; /* Color de fondo igual al resto de la página */
+    font-family: 'Fredoka'; /* Fuente para el texto general de la sección */
+}
+
+#contacto h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Merriweather Sans'; /* Fuente para el título */
+    font-size: 2em; /* Tamaño de fuente más grande */
+    color: #333; /* Color del título (ajusta según necesites) */
+}
+
+#contacto p {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Fredoka';
+    color: var(--color-negro-suave); /* Color del párrafo (ajusta según necesites) */
+
+}
+.caja-formulario {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd; 
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: transparent; /* Fondo transparente para heredar el color del padre */
+}
+
+/* Estilos para las etiquetas (labels) */
+.caja-formulario label {
+    display: block; /* Hace que las etiquetas ocupen todo el ancho y se apilen */
+    text-align: left; /* Alinea el texto de las etiquetas a la izquierda */
+    margin-bottom: 5px; /* Espacio entre la etiqueta y el input */
+    font-weight: bold; /* Opcional: pone las etiquetas en negrita */
+    font-family: 'Fredoka';
+}
+
+.formulario-input,
+#mensaje {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Fredoka';
+}
+.boton-enviar {
+    background-color: var(--color-amarillo); /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Fredoka';
+    transition: background-color 0.3s;
+}
+
+.boton-enviar:hover {
+    background-color: #daa520; /* Un tono más oscuro al pasar el mouse */
+}
+.boton-reset {
+    background-color: var(--color-amarillo); /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Fredoka';
+    transition: background-color 0.3s;
+}
+
+.boton-reset:hover {
+    background-color: #daa520; /* Un tono más oscuro al pasar el mouse */
+}
