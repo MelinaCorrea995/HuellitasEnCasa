@@ -52,6 +52,7 @@ main{
 }
 
 .footer-lista {
+    color: blue;
     list-style-type: none;
     text-align: center;
     display: flex;
