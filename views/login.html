@@ -13,42 +13,60 @@
     rel="stylesheet" />
   <script src="https://kit.fontawesome.com/4d235eb227.js" crossorigin="anonymous"></script>
   <link rel="shortcut icon" href="/public/images/favicon.ico" type="image/x-icon">
+   <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/1hb7xNFiFyY3F6QkrSlp7vFYLXjheRD1Az/n8J" crossorigin="anonymous">
+</head>
 
 <body class="container">
   <header class="main-header">
-    <nav class="container-nav">
-      <a class="navbar-logo" href="/views/index.html"> <img src="../public/images/huellitas_en_casa-logo.png"
-          class="logo-nav" alt="logo-huellitas"></a>
-      <<<<<<< HEAD <ul class="nav-lista">
-        <li><a href="#about-us"><i class="fa-solid fa-paw"></i> Acerca de</a></li>
-        <li><a href="#animal-container"><i class="fa-solid fa-paw"></i> Adopción</a></li>
-        <li><a href="/views/contact.html"><i class="fa-solid fa-paw"></i> Contacto</a></li>
-        <li><a href="#"><i class="fa-solid fa-paw"></i> Voluntariado</a></li>
-        <li><a href="/views/preAdopt.html"><i class="fa-solid fa-paw"></i> Formulario pre Adopción</a></li>
-        <li><a href="./register.html"><i class="fa-regular fa-circle-user"></i> Registrate</a></li>
-        <li><a href="./login.html"><i class="fa-solid fa-right-to-bracket"></i> Inicia sesión</a></li>
-        </ul>
-        =======
-        <ul class="nav-lista">
-          <li><a href="#about-us"><i class="fa-solid fa-paw"></i> Acerca de</a></li>
-          <li><a href="#animal-container"><i class="fa-solid fa-paw"></i> Adopción</a></li>
-          <li><a href="/views/contact.html"><i class="fa-solid fa-paw"></i> Contacto</a></li>
-          <li><a href="#"><i class="fa-solid fa-paw"></i> Voluntariado</a></li>
-          <li><a href="/views/preAdopt.html"><i class="fa-solid fa-paw"></i> Formulario pre Adopción</a></li>
-          <li><a href="./register.html"><i class="fa-regular fa-circle-user"></i> Registrate</a></li>
-          <li><a href="./login.html"><i class="fa-solid fa-right-to-bracket"></i> Inicia sesión</a></li>
-        </ul>
-        >>>>>>> 4a61ea6fbee47a922d82dce71342666faaebfeaf
-    </nav>
-
-    <!-- <div class="burger-menu">
-        <i class="fa-solid fa-bars"></i>
-    </div> -->
-  </header>
+    <div class="container-nav">
+      <div class="logo-container"> 
+        <a class="navbar-logo" href="/views/index.html">
+          <img src="../public/images/huellitas_en_casa-logo.png" class="logo-nav" alt="logo-huellitas">
+        </a>
+      </div>
+      <nav>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-lista">
+          <li class="nav-item">
+            <a class="nav-link active" href="#about-us">
+              <i class="fa-solid fa-paw"></i> Acerca de
+            </a>
+          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contacto">
+                <i class="fa-solid fa-paw"></i> Contacto
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fa-solid fa-paw"></i> Voluntariado
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/views/preAdopt.html">
+                <i class="fa-solid fa-paw"></i> Formulario pre Adopción
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./register.html">
+                <i class="fa-regular fa-circle-user"></i> Registrate
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./login.html">
+                <i class="fa-solid fa-right-to-bracket"></i> Inicia sesión
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  
   <main>
-    <h1>¡Que bueno verte por acá!</h1>
-    <p>Inicia sesión para acceder a tu perfil, ver tus fotos y descubrir nuevas formas
-      de cuidar a tu mascota.</p>
+    <div class="titulo-container">
+      <h1>¡Que bueno verte por acá!</h1>
+      <p>Inicia sesión para acceder a tu perfil, ver tus fotos y descubrir nuevas formas de cuidar a tu mascota.</p>
+  </div>
     <div class="caja-formulario">
       <div form="formulario">
         <label for="Email">Email:</label><br>
@@ -60,23 +78,45 @@
         <button class="boton-enviar" type="submit">Iniciar sesión</button>
       </form>
     </div>
-    <h4>¿Olvidaste tu contraseña? <button class="click">Click acá</button></h3>
+    <div class="olvido-contrasena">
+      ¿Olvidaste tu contraseña? <button class="click">Click acá</button>
+  </div>
   </main>
+
   <footer>
     <div class="footer-content">
-      <img src="../public/images/huellitas_en_casa-logo.png" alt="Huellitas en casa" class="footer-logo">
+      <div class="footer-logo-container">
+        <img
+          src="../public/images/huellitas_en_casa-logo.png"
+          alt="Huellitas en casa"
+          class="footer-logo"
+        />
+        <p class="footer-direccion">ruta 16 Parc 501</p>
+        <p class="footer-telefono">(549) 11 4465 5161</p>
+      </div>
       <div class="footer-columns">
-        <div class="Dirección">ruta 16 Parc 501</div>
-        <div class="contacto">549 11 445 5161</div>
         <div class="footer-column">
           <h2>Menú</h2>
           <ul class="footer-list">
-            <li><a href="#about-us"><i class="fa-solid fa-paw"></i> Acerca de</a></li>
-            <li><a href="#animal-container"><i class="fa-solid fa-paw"></i> Adopción</a></li>
-            <li><a href="#contacto"><i class="fa-solid fa-paw"></i> Contacto</a></li>
-            <li><a href="#"><i class="fa-solid fa-paw"></i> Voluntariado</a></li>
+            <li>
+              <a href="#about-us"
+                ><i class="fa-solid fa-paw"></i> Acerca de</a
+              >
+            </li>
+            <li>
+              <a href="#animal-container"
+                ><i class="fa-solid fa-paw"></i> Adopción</a
+              >
+            </li>
+            <li>
+              <a href="#contacto"><i class="fa-solid fa-paw"></i> Contacto</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-paw"></i> Voluntariado</a>
+            </li>
           </ul>
         </div>
+
         <div class="footer-column">
           <h2>Nuestras redes</h2>
           <ul class="footer-list">
@@ -86,13 +126,30 @@
             <li><i class="fa-solid fa-envelope"></i>Correo electrónico</li>
           </ul>
         </div>
-        <div class="footer-newsletter">
-          <h3>Suscribite a nuestra newsletter</h3>
-          <input type="text" id="newsletter" name="newsletter" placeholder="Ingresa tu correo">
-        </div>
       </div>
-      <p class="footer-copyright">© 2024 Huellitas en Casa. Todos los derechos reservados.</p>
+      <div class="footer-column">
+        <h4>Suscríbete a nuestro Newsletter</h4>
+        <form action="https://your-mailchimp-form-action" method="post">
+          <div class="form-group">
+            <input
+              type="email"
+              name="EMAIL"
+              placeholder="Tu correo electrónico"
+              required
+            />
+            <button type="submit" class="btn-submit">Suscríbete</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <p class="footer-copyright">
+      © 2024 Huellitas en Casa. Todos los derechos reservados.
+    </p>
   </footer>
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>

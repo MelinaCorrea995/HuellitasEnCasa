@@ -1,8 +1,8 @@
 @import url("index.css");
 @import url("login.css");
 @import url("register.css");
-@import url("adoptCartl.css");
 @import url("adoptDetail.css");
+@import url("preAdopt.css");
 
 :root {
   --color-amarillo: #F7E97B; /* para accentos */
@@ -13,8 +13,11 @@
   --color-violeta: #C896EA; /* para el fondo*/
 }
 * {
+  padding: 0;
   margin: 0;
   box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
 }
 
 /* Cuerpo de página */
@@ -24,42 +27,43 @@ body{
   margin-left: 25px;
 }
 .main-header { /* Contenedor principal de la barra de navegación */
-  width: 100%; /* Ocupa todo el ancho disponible */
-  background-color: var(--color-violeta); /* Color de fondo */
-  padding: 1rem 0; /* Espaciado vertical */
+  width: 100%; 
+  background-color: var(--color-violeta); 
+  padding: 1rem 0; 
 }
 .container-nav{
-  max-width: 1200px; /* Ancho máximo de la barra de navegación */
-  margin: 0 auto; /* Centra horizontalmente */
   display: flex;
-  justify-content: space-between; /* Distribuye el espacio entre el logo y la lista */
+  justify-content: space-between; 
   align-items: center;
-  padding: 0 20px; /* Espaciado horizontal interno */
+  padding: 10px 20px;
 }
 /* logo */
+.logo-container{
+  margin-right: 20px
+}
 .logo-nav{
-  max-width: 200px; /* Ancho máximo para evitar que sea demasiado grande */
+  max-width: 150px; 
   height: auto;
 }
 
 /* listas */
 .nav-lista{
   font-family: 'Fredoka';
-  list-style-type: none;
   display: flex;
-  gap: 1rem ;
+  flex-direction: row;
+  justify-content: center; /* Centra los enlaces */
+  gap: 2rem; /* Espaciado entre los elementos */
+  font-weight: bold; 
+  letter-spacing: 1px;
+  font-size: 20px;
 }
-.nav-lista li {
-  display: flex;
-  align-items: center; /* Centrar verticalmente */
-  gap: 0.5rem; /* Espacio entre icono y texto */
-  margin: 0 10px; /* Reduce el margen horizontal a 10px */
-  padding: 5px 0;
+.nav-lista li{
+  margin: 0 10px;
 }
 .nav-lista li a {
   text-decoration: none; /* Quitar subrayado */
   color: var(--color-negro-suave); /* Color del texto */
-  padding: 0.5rem 1rem; /* Espaciado interno para los enlaces */
+  padding: 0.5rem 0.8rem; /* Espaciado interno para los enlaces */
   border-radius: 5px; /* Bordes redondeados */
   letter-spacing: -0.5px;
   transition: background-color 0.3s ease; /* Transición suave al pasar el mouse */
@@ -67,9 +71,11 @@ body{
 .nav-lista li a:hover {
   background-color: var(--color-amarillo); /* Color de fondo al pasar el mouse */
 }
+/* Sobre nosotras */
 #about-us{
   font-family: 'roboto';
 }
+
 /* Pie de página */
 footer {
   background-color: #87DC72; /* Color de fondo (tu especificación) */
@@ -77,11 +83,10 @@ footer {
   font-family: 'fredoka'; /* Fuente (tu especificación) */
   text-align: center;
 }
-
 .footer-content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-be;
   max-width: 1200px;
   margin: 0 auto;
   align-items: flex-start;
@@ -97,12 +102,16 @@ footer {
   display: flex;
   gap: 50px;
 }
-
 .footer-column {
   text-align: left;
 }
 .footer-column h2 {
-  padding-right: 100px; /* Ajusta este valor según sea necesario */
+  padding-right: 100px; 
+}
+.btn-submit{
+  font-family: 'fredoka';
+  background-color: var(--color-celeste);
+  color: var(--color-negro-suave);
 }
 .footer-list {
   list-style: none;
@@ -114,29 +123,16 @@ footer {
   margin-bottom: 5px;
 }
 
-.footer-list a { /* Selecciona los enlaces dentro de la lista del footer */
-  text-decoration: none; /* Quita el subrayado */
-  color: inherit; /* Hereda el color del texto del contenedor padre (para que no sea azul) */
-  display: block; /* Hace que el enlace ocupe todo el ancho del li */
-  padding: 5px 0; /* Espaciado vertical */
+.footer-list a { 
+  color: inherit; 
+  display: block; 
+  padding: 5px 0; 
 }
 
-/* Estilos para el hover (opcional, pero recomendado) */
+/* Estilos para el hover */
 .footer-list a:hover {
-  text-decoration: underline; /* Vuelve a aparecer el subrayado al pasar el mouse */
-  color:var(--color-amarillo); /* Cambia el color al pasar el mouse (puedes usar otro color) */
-}
-.footer-newsletter {
-  margin-top: 20px;
-  text-align: center;
-  width: 100%;
-}
-
-.footer-newsletter input[type="text"] {
-  width: 300px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  text-decoration: underline; 
+  color:var(--color-amarillo); 
 }
 
 .footer-copyright {
@@ -147,23 +143,40 @@ footer {
 }
 
 /* Media Queries */
-@media (max-width: 480px){
-  .container-nav {
-    flex-direction: column; /* Apilar elementos verticalmente */
-    align-items: flex-start; /* Alinear a la izquierda */
+@media  screen and (max-width: 425px) {
+.container-nav{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+.container-nav a {
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+}
+.footer-content {
+  flex-direction: column;
+  align-items: center;
 }
 
-  .nav-lista li {
-      margin-bottom: 1rem; /* Espacio entre elementos */
-  }
-
-  .animal-list{
-      grid-template-columns: 1fr; /* Una columna en pantallas muy pequeñas */
-  }
+.footer-columns {
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
-@media (max-width: 768px) { /* Ejemplo para pantallas pequeñas */
-  .container-nav {
+.footer-column {
+  text-align: center;
+}
+.footer-column h2 {
+  padding-right: 0;
+}
+}
+
+
+@media screen and (max-width: 375px) { /* Ejemplo para pantallas pequeñas */
+  .container{
       flex-direction: column; /* Apilar elementos verticalmente */
       align-items: flex-start; /* Alinear a la izquierda */
   }
@@ -176,20 +189,20 @@ footer {
   .logo-nav{
       margin: 0 auto;
   }
-}
-
-/* Media query para pantallas más pequeñas (opcional - ajusta el breakpoint según necesites) */
-@media (max-width: 768px) {
-  .animal-list {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Dos columnas en pantallas pequeñas */
+  .footer-logo {
+    max-width: 120px;
+  }
+  .footer-column {
+    width: 100%;
   }
 }
 
-@media (max-width: 480px){
-  .animal-list{
-      grid-template-columns: 1fr; /* Una columna en pantallas muy pequeñas */
+ 
+@media screen and (max-width: 320px) {
+  .footer-logo {
+    max-width: 100px;
   }
-}
-.descripcion-animal{
-  color: var(--color-negro-suave);
+  .footer-column {
+    width: 100%;
+  }
 }

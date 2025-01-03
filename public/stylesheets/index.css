@@ -6,24 +6,47 @@
     background-color: var(--color-celeste);
     border: 1px solid #C896EA;
     width: 100%;
-}
 
-#search-form{
-    float: left;
 }
-
-#titulo-container{
-    color: var(--color-negro-suave);
-    font-family: 'Merriweather Sans';
-    width: 100%;
-}
+#search-form {
+    position: relative; 
+    margin-top: 10px;
+  }
+  
+  #search-form input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px; /* Ajusta el ancho según sea necesario */
+  }
+  
+  #search-form button {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #search-form button::before {
+    content: "\f002"; /* Icono de lupa de Font Awesome */
+    font-family: Font Awesome 5 Free;
+    font-size: 16px;
+  }
 #animal-container {
     padding: 20px; /* Espacio alrededor del contenedor */
 }
-
+/* Titulo Animales en Adopción */
 #titulo-container {
-    text-align: center;
+    color: var(--color-negro-suave);
+    font-family: 'Merriweather Sans';
+    text-align: center; 
+    font-weight: bold; 
+    width: 100%;
     margin-bottom: 20px;
+    margin-top: 40px;
 }
 
 .animal-list { /* Estilos aplicados al contenedor con la clase animal-list */
@@ -85,33 +108,33 @@
 
 }
 .caja-formulario {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd; 
-    border-radius: 8px;
+    max-width: 450px; 
+    margin: 0 auto; /* Centrar la caja horizontalmente */
+    padding: 30px;
+    border-radius: 20px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     background-color: transparent; /* Fondo transparente para heredar el color del padre */
 }
 
 /* Estilos para las etiquetas (labels) */
-.caja-formulario label {
-    display: block; /* Hace que las etiquetas ocupen todo el ancho y se apilen */
-    text-align: left; /* Alinea el texto de las etiquetas a la izquierda */
-    margin-bottom: 5px; /* Espacio entre la etiqueta y el input */
-    font-weight: bold; /* Opcional: pone las etiquetas en negrita */
-    font-family: 'Fredoka';
-}
 
-.formulario-input,
-#mensaje {
-    width: calc(100% - 22px);
+.caja-formulario input,
+.caja-formulario textarea {
+    display: block; 
+    width: calc(100% - 20px) !important ;
     padding: 10px;
-    margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+    border-radius: 5px;
+    margin-bottom: 15px; 
     font-family: 'Fredoka';
+    box-sizing: border-box; 
+}
+.caja-formulario label {
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-weight: bold;
+    font-family:'Fredoka';
 }
 .boton-enviar {
     background-color: var(--color-amarillo); /* Color de fondo */
@@ -141,3 +164,71 @@
 .boton-reset:hover {
     background-color: #daa520; /* Un tono más oscuro al pasar el mouse */
 }
+
+/* Media Queries */
+@media screen and (max-width: 425px) {
+    .caja-formulario {
+      width: 90%; /* Ajustar el ancho de la caja al 90% del contenedor */
+      padding: 10px;
+    }
+  
+    .caja-formulario input,
+    .caja-formulario textarea {
+      width: 100%; /* Usar todo el ancho disponible */
+      font-size: 14px; /* Ajustar el tamaño de fuente para inputs */
+    }
+  
+    .caja-formulario label {
+      font-size: 14px; /* Ajustar el tamaño de fuente de las etiquetas */
+    }
+  
+    .boton-enviar,
+    .boton-reset {
+      width: 100%; /* Botones ocupan todo el ancho disponible */
+      font-size: 14px; /* Ajustar tamaño de fuente de los botones */
+      padding: 8px 0; /* Reducir el padding vertical */
+    }
+  }
+  
+  @media screen and (max-width: 375px) {
+    .caja-formulario {
+      padding: 8px; /* Reducir un poco el padding interno */
+    }
+  
+    .caja-formulario input,
+    .caja-formulario textarea {
+      font-size: 13px; /* Reducir tamaño de fuente */
+    }
+  
+    .caja-formulario label {
+      font-size: 13px;
+    }
+  
+    .boton-enviar,
+    .boton-reset {
+      font-size: 13px;
+      padding: 6px 0;
+    }
+  }
+  
+  @media screen and (max-width: 320px) {
+    .caja-formulario {
+      padding: 5px; /* Aún más compacto para pantallas pequeñas */
+    }
+  
+    .caja-formulario input,
+    .caja-formulario textarea {
+      font-size: 12px; /* Tamaño más pequeño para acomodar textos */
+    }
+  
+    .caja-formulario label {
+      font-size: 12px; /* Reducir las etiquetas */
+    }
+  
+    .boton-enviar,
+    .boton-reset {
+      font-size: 12px;
+      padding: 5px 0;
+    }
+  }
+  

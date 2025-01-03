@@ -37,3 +37,5 @@ Estas páginas se destacan por su compromiso con el bienestar animal, su mensaje
 
 Carpeta design:
 Incluye este README junto con los recursos visuales como el logo, la paleta de colores y los wireframes de diseño.
+
+[Link a GitHub Project](https://github.com/users/jainenalbornozb/projects/3)
