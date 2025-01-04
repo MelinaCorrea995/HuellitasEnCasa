@@ -1,34 +1,41 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 body {
     font-family: 'fredoka';
     margin: 0;
     padding: 20px;
 }
+
 h2 {
     text-align: center;
 }
+
 .formulario {
-    border: 2px solid black; /* Agrega un borde negro al formulario */
+    border: 2px solid black;
     padding: 20px;
-    margin: 20px auto; /* Centra el formulario y agrega márgenes */
+    margin: 20px auto;
     background-color: transparent;
 }
 
 .formulario p {
     margin-bottom: 10px;
 }
-#personaje{
+
+#personaje {
     width: 400px;
     font-family: 'fredoka';
 }
-#tipo_vivienda{
+
+#tipo_vivienda {
     width: 400px;
     font-family: 'fredoka';
 }
-#vivienda_alquiler{
+
+#vivienda_alquiler {
     width: 400px;
     font-family: 'fredoka';
 }
+
 label {
     display: block;
     margin-bottom: 5px;
@@ -51,7 +58,8 @@ textarea {
 }
 
 .boton-enviar {
-    background-color: #4CAF50; /* Verde */
+    background-color: #4CAF50;
+    /* Verde */
     color: white;
     padding: 10px 20px;
     border: none;
@@ -60,3 +68,48 @@ textarea {
     margin-right: 10px;
 }
 
+/* Media Queris */
+
+@media screen and (min-width: 425px) {
+    .formulario {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 15px;
+    }
+
+    .formulario input,
+    textarea,
+    select {
+        width: 100%;
+    }
+
+    #tipo_vivienda,
+    #vivienda_alquiler,
+    #personaje {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .formulario {
+        width: 100%;
+        max-width: 400px;
+        /* Limita el ancho máximo */
+        margin: 0 auto;
+        /* Centra el formulario */
+        padding: 15px;
+    }
+
+    .formulario input,
+    textarea,
+    select {
+        width: 100%;
+    }
+
+    #tipo_vivienda,
+    #vivienda_alquiler,
+    #personaje {
+        width: 100%;
+    }
+}

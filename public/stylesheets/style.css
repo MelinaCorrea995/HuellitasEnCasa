@@ -99,8 +99,9 @@ footer {
 }
 
 .footer-columns {
+  flex: 2;
   display: flex;
-  gap: 50px;
+  justify-content: space-around;
 }
 .footer-column {
   text-align: left;
@@ -110,6 +111,7 @@ footer {
 }
 .btn-submit{
   font-family: 'fredoka';
+  margin: 10px;
   background-color: var(--color-celeste);
   color: var(--color-negro-suave);
 }
@@ -171,6 +173,7 @@ footer {
 }
 .footer-column h2 {
   padding-right: 0;
+  flex-direction: column;
 }
 }
 
@@ -197,7 +200,7 @@ footer {
   }
 }
 
- 
+
 @media screen and (max-width: 320px) {
   .footer-logo {
     max-width: 100px;
