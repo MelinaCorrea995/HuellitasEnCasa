@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es-AR">
 
@@ -5,7 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../public/stylesheets/style.css" />
-  <title>Registrate</title>
+  <title>Historias con final feliz</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -15,7 +16,7 @@
   <link rel="shortcut icon" href="/public/images/favicon.ico" type="image/x-icon" />
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/1hb7xNFiFyY3F6QkrSlp7vFYLXjheRD1Az/n8J" crossorigin="anonymous" />
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1FkwK04lK/TfRSa" crossorigin="anonymous" />
 </head>
 
 <body class="container">
@@ -45,7 +46,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/views/preAdopt.html">
-              <i class="fa-solid fa-paw"></i> Formulario de pre-adopción
+              <i class="fa-solid fa-paw"></i>  Formulario de pre-adopción
             </a>
           </li>
           <li class="nav-item">
@@ -63,43 +64,48 @@
     </div>
   </header>
 
-  <main>
-    <!-- Registro de usuario -->
-    <div class="formulario">
-      <h1>¡Bienvenido@ a la familia!</h1>
-      <p>Para finalizar la adopción, por favor completa el siguiente formulario</p>
-      <form>
-        <div class="registro">
-          <label for="username">Nombre:</label>
-          <input type="text" name="nombre" placeholder="Ingresa tu nombre" required />
-          <label for="username">Apellido:</label>
-          <input type="text" name="apellido" placeholder="Ingresa tu apellido" required />
-          <label for="Email">Correo electronico:</label>
-          <input type="email" name="Email" id="email" placeholder="Ingresa tu email" />
-          <label for="phone">Teléfono:</label>
-          <input type="number" id="phone" name="phone" placeholder="Ingresa tu teléfono" />
-          <label for="Domicilio">Dirección:</label>
-          <input type="text" id="Domicilio" name="Domicilio" placeholder="Domicilio" />
-          <label for="text">¿Como te enteraste de nosotros?:</label>
-          <select id="text" name="" required>
-            <option value=""></option>
-            <option value="es">Facebook</option>
-            <option value="mx">Instagram</option>
-            <option value="ar">Twitter</option>
-            <option value="co">Ya adopte</option>
-            <option value="cl">Otro</option>
-          </select>
-          <button class="btn-submit" type="submit">Enviar</button>
-        </div>
-        <h2>¿Por qué registrarse?</h2>
-        <p class="requisito">
-          Porque es un requisito para formalizar la adopción. Nos permite
-          mantener un registro transparente de todas las adopciones realizadas y
-          garantiza el cumplimiento de nuestras políticas de bienestar animal.
-        </p>
-      </form>
-  </main>
-  <footer>
+
+<main>
+    <section id="adopted-container">
+        <h2 id="titulo-container">Historias de Adopción</h2>
+        <div class="animales animal-list">
+          <article class="animal">
+            <img src="../public/images/aragorn-adopcion.jpg" alt="img-" class="pets" />
+            <div class="card-animal">
+              <h3 class="title">Lupine</h3>
+              <h4>Conoce mi historia</h4>
+              <div class="descripcion-animal">
+                Hola, mi nombre es Lupi y fui adoptado un 21 de septiembre, cuando era solo un bebito. 🧡
+                Mi mamá humana, Rosa, compartía su vida con un perrito que lamentablemente falleció a causa de una enfermedad 😔...<a href="#" class="read-more">Leer más <i class="fa-solid fa-bone"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="animal">
+            <img src="../public/images/dooku-adopcion.jpg" alt="img-gatito-naranja-cachorro" class="pets" />
+            <div class="card-animal">
+              <h3>Bicho </h3>
+              <h4>Conoce mi historia</h4>
+              <div class="descripcion-animal">
+                
+                <a href="#" class="read-more">Leer más <i class="fa-solid fa-bone"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="animal">
+            <img src="../public/images/galadriel-adopcion.jpeg" alt="img-gatito-naranja-cachorro" class="pets" />
+            <div class="card-animal">
+              <h3>Ariel</h3>
+              <h4>Conoce mi historia</h4>
+              <div class="descripcion-animal">
+                
+                <a href="#" class="read-more">Leer más <i class="fa-solid fa-bone"></i></a>
+              </div>
+            </div>
+          </article>
+</main>
+<footer>
     <div class="footer-content">
       <div class="footer-logo-container">
         <img src="../public/images/huellitas_en_casa-logo.png" alt="Huellitas en casa" class="footer-logo" />
@@ -120,7 +126,7 @@
               <a href="#contacto"><i class="fa-solid fa-paw"></i> Contacto</a>
             </li>
             <li>
-              <a href="/views/adoptStories.html"><i class="fa-solid fa-paw"></i> Historias</a>
+              <a href="/views/adoptStories.html"><i class="fa-solid fa-paw"></i> Historias </a>
             </li>
           </ul>
         </div>

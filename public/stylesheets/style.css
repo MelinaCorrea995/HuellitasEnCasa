@@ -1,16 +1,18 @@
+@import url(aboutUs.css);
+@import url("adoptDetail.css");
+@import url(adoptStories.css);
 @import url("index.css");
 @import url("login.css");
 @import url("register.css");
-@import url("adoptDetail.css");
 @import url("preAdopt.css");
 
 :root {
-  --color-amarillo: #F7E97B; /* para accentos */
-  --color-beige: #FAF3E0; 
-  --color-celeste:  #6ccdfd; /* para accentos*/
+  --color-marron: #A67C6D; /* para accentos */
+  --color-amarillo: #daa520; /*para el hover*/
+  --color-azul:  #3D4783; /* para accentos*/
   --color-negro-suave: #1d1c1c; /* para el texto*/
-  --color-verde: #87DC72; /* para el footer*/
-  --color-violeta: #C896EA; /* para el fondo*/
+  --color-verde: #549c41; /* para el footer*/
+  --color-violeta: #8E95BF; /* para el fondo*/
 }
 * {
   padding: 0;
@@ -23,7 +25,7 @@
 /* Cuerpo de página */
 body{
   width: 95%;
-  background-color: #C896EA;
+  background-color: var(--color-violeta);
   margin-left: 25px;
 }
 .main-header { /* Contenedor principal de la barra de navegación */
@@ -78,16 +80,17 @@ body{
 
 /* Pie de página */
 footer {
-  background-color: #87DC72; /* Color de fondo (tu especificación) */
+  background-color: var(--color-verde); /* Color de fondo (tu especificación) */
   padding: 20px;
   font-family: 'fredoka'; /* Fuente (tu especificación) */
   text-align: center;
+  max-width: 100%;
 }
 .footer-content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-be;
-  max-width: 1200px;
+  justify-content: space-between;
+  max-width: 1500px;
   margin: 0 auto;
   align-items: flex-start;
   gap: 20px;
@@ -99,7 +102,6 @@ footer {
 }
 
 .footer-columns {
-  flex: 2;
   display: flex;
   justify-content: space-around;
 }
@@ -112,7 +114,7 @@ footer {
 .btn-submit{
   font-family: 'fredoka';
   margin: 10px;
-  background-color: var(--color-celeste);
+  background-color: var(--color-azul);
   color: var(--color-negro-suave);
 }
 .footer-list {
@@ -134,7 +136,7 @@ footer {
 /* Estilos para el hover */
 .footer-list a:hover {
   text-decoration: underline; 
-  color:var(--color-amarillo); 
+  color: var(--color-amarillo); 
 }
 
 .footer-copyright {

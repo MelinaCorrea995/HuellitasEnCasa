@@ -1,13 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");  
 
-/* descripción : sobre nosotros */
-#about-us{
-    color: var(--color-negro-suave);
-    background-color: var(--color-celeste);
-    border: 1px solid #C896EA;
+.banner-img{
+    align-items: center;
     width: 100%;
-
+    height: auto;
 }
+
+
 #search-form {
     position: relative; 
     margin-top: 10px;
@@ -86,32 +85,35 @@
 }
 
 /* Estilos para la sección de contacto */
+
 #contacto {
-    padding: 40px 0;
-    background-color: #C896EA; /* Color de fondo igual al resto de la página */
-    font-family: 'Fredoka'; /* Fuente para el texto general de la sección */
+    align-items: center;
+    padding: 30px 0 ;
+    background-color: #636CA1 ; 
+    font-family: 'Fredoka'; 
+    max-width: 100%; 
 }
 
 #contacto h1 {
     text-align: center;
     margin-bottom: 20px;
-    font-family: 'Merriweather Sans'; /* Fuente para el título */
-    font-size: 2em; /* Tamaño de fuente más grande */
-    color: #333; /* Color del título (ajusta según necesites) */
+    font-family: 'Merriweather Sans'; 
+    font-size: 2em;
+    color: #1a1919;
+    font-weight: bold; 
 }
 
 #contacto p {
     text-align: center;
     margin-bottom: 30px;
     font-family: 'Fredoka';
-    color: var(--color-negro-suave); /* Color del párrafo (ajusta según necesites) */
+    color: var(--color-negro-suave); 
 
 }
 .caja-formulario {
-    max-width: 450px; 
-    margin: 0 auto; /* Centrar la caja horizontalmente */
+    margin: 0 auto; 
     padding: 30px;
-    border-radius: 20px;
+    border-radius: 30px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     background-color: transparent; /* Fondo transparente para heredar el color del padre */
 }

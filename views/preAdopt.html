@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../public/stylesheets/style.css" />
-  <title>Huellitas en casa</title>
+  <title>Formulario de pre-adopción</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -29,7 +29,7 @@
       <nav>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-lista">
           <li class="nav-item">
-            <a class="nav-link active" href="#about-us">
+            <a class="nav-link active" href="/views/aboutUs.html">
               <i class="fa-solid fa-paw"></i> Acerca de
             </a>
           </li>
@@ -39,13 +39,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="fa-solid fa-paw"></i> Voluntariado
+            <a class="nav-link" href="/views/adoptStories.html">
+              <i class="fa-solid fa-paw"></i> Historias
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/views/preAdopt.html">
-              <i class="fa-solid fa-paw"></i> Formulario pre Adopción
+              <i class="fa-solid fa-paw"></i> Formulario de pre-adopción
             </a>
           </li>
           <li class="nav-item">
@@ -91,6 +91,8 @@
     <input type="email" name="Email" id="email" placeholder="Email">
     <label for="motivo">¿Por qué motivo quieres adoptar?</label>
     <textarea id="motivo" name="motivo" rows="5" placeholder="Contanos por qué querés adoptar"></textarea>
+
+    <h3>Contanos sobre tu vivienda</h3>
     <label for="tipo_vivienda">¿Qué tipo de vivienda tenés?</label>
     <select id="tipo_vivienda" name="tipo_vivienda">
       <option value="casa">Casa</option>
@@ -105,26 +107,16 @@
       <option value="no">No</option>
       <option value="desconoce">Desconoce</option>
     </select>
-    <p>¿Cuantas personas viven en tu hogar? Indica edades.</p>
-    <input type="text" id="" name="" placeholder="Indica cuantas personas hay en tu hogar y sus edades" />
     <p>¿Alguien en tu hogar tiene alergia a perros o gatos?</p>
     <input type="text" id="" name="" placeholder="Indica si con medicación es tratable" />
-    <p>¿Hay otras mascotas en tu casa?</p>
-    <input type="text" id="" name="" placeholder="Indica si son perros o gatos y cuantos" />
-    <p>
-      ¿Podés cubrir los gastos veterinarios necesarios para cuidar su salúd?
-    </p>
-    <input type="text" id="" name="" placeholder="Indica si o no" />
     <!-- descripcion al finalizar el registro -->
     <div class="descripcion">
       <p>
-        Hasta aquí llego el formulario de adopción. Habiendo leído los
+        Hasta acá llegó el formulario de adopción. Habiendo leído los
         requisitos y completado el formulario,¿Sentís que estás dispuesto a
-        adoptar responsablemente darle el hogar y la vida que merece. Nosotros
-        buscamos adopciones responsables y para toda la vida. Una mascota no
-        se descarta,no se regala,no se maltrata y no se abandona. Es una vidaa
-        la que se la respeta , cuida y ama como un miembro mas de la
-        familia.<i class="fa-solid fa-paw"></i>
+        adoptar responsablemente darle el hogar y la vida que merece?
+        Nosotras buscamos adopciones responsables y para toda la vida. Una mascota no
+        se descarta,no se regala,no se maltrata y no se abandona.
       </p>
     </div>
     <form>
@@ -145,7 +137,7 @@
           <h2>Menú</h2>
           <ul class="footer-list">
             <li>
-              <a href="#about-us"><i class="fa-solid fa-paw"></i> Acerca de</a>
+              <a href="/views/aboutUs.html"><i class="fa-solid fa-paw"></i> Acerca de</a>
             </li>
             <li>
               <a href="#animal-container"><i class="fa-solid fa-paw"></i> Adopción</a>
@@ -154,23 +146,37 @@
               <a href="#contacto"><i class="fa-solid fa-paw"></i> Contacto</a>
             </li>
             <li>
-              <a href="#"><i class="fa-solid fa-paw"></i> Voluntariado</a>
+              <a href="/views/adoptStories.html"><i class="fa-solid fa-paw"></i> Historias</a>
             </li>
           </ul>
         </div>
 
         <div class="footer-column">
-          <h2>Nuestras redes</h2>
+          <h2>Nos encontramos acá</h2>
           <ul class="footer-list">
-            <li><i class="fa-brands fa-square-facebook"></i>Facebook</li>
-            <li><i class="fa-brands fa-square-instagram"></i>Instagram</li>
-            <li><i class="fa-brands fa-square-twitter"></i>Twitter</li>
-            <li><i class="fa-solid fa-envelope"></i>Correo electrónico</li>
+            <li>
+              <a href="https://www.facebook.com/profile.php?id=61571625003086"
+                ><i class="fa-brands fa-square-facebook"></i>Facebook</a
+              >
+            </li>
+            <li>
+              <a href="https://www.instagram.com/huellitasencasa.ar/"
+                ><i class="fa-brands fa-square-instagram"></i>Instagram</a
+              >
+            </li>
+            <li>
+              <a
+                href="mailto:huellitasencasa.ar@gmail.com"
+                title="Envíanos un correo"
+              >
+                <i class="fa-solid fa-envelope"></i> Correo electrónico
+              </a>
+            </li>
           </ul>
         </div>
       </div>
       <div class="footer-column">
-        <h4>Suscríbete a nuestro Newsletter</h4>
+        <h4>Newsletter</h4>
         <form action="https://your-mailchimp-form-action" method="post">
           <div class="form-group">
             <input type="email" name="EMAIL" placeholder="Tu correo electrónico" required />
