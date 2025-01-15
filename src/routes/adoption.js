@@ -1,4 +1,4 @@
-const express = require('express'); 
+const express = require('express');
 const router = express.Router();
 const path = require('path');
 const animals = require(path.join(__dirname, '../data/animals.json')); // Ruta al JSON con los datos de animales
@@ -16,5 +16,6 @@ router.get('/adoptDetail', (req, res) => {
 });
 
 module.exports = router;
+
 
 

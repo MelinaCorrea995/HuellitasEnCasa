@@ -1,4 +1,4 @@
-const happystory = require("../data/animals.json");
+const happystory = require('../../data/animals.json');
 
 module.exports = {
 adoptDetail: (req, res) => {
@@ -20,4 +20,4 @@ adoptDetail: (req, res) => {
 };
 
 // adoptstories = happystory.js=happyStoryController.js te lo aclaro por que
-//  ami me mareo tanto nombre iguales para saber que hace que 
+//  a mi me mareo tanto nombre iguales para saber que hace que 

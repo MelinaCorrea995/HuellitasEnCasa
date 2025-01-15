@@ -88,17 +88,6 @@
     "description": "Buscamos una familia para Padme que le de toda la atención y el amor que merece. Necesitaría una casa donde fuese hija única y sin niños",
     "image": "/images/padme-adopcion.jpg",
     "adoptado": "false"
-  } ,
-  {
-    "id": 10,
-    "name": "Padme",
-    "sex": "Hembra",
-    "age": "1 año",
-    "zone": "Devoto",
-    "description": "Buscamos una familia para Padme que le de toda la atención y el amor que merece. Necesitaría una casa donde fuese hija única y sin niños",
-    "image": "/images/padme-adopcion.jpg",
-    "adoptado": "true"
-  }
-
+  } 
 
 ]
