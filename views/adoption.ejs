@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Animales</title>
+</head>
+<body>
+    <h1>Lista de Animales</h1>
+    <ul>
+        <% animals.forEach(animal => { %>
+            <li>
+                <a href="/adoptions/adoptDetail/<%= animal.id %>">
+                    <%= animal.name %> - <%= animal.type %>
+                </a>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

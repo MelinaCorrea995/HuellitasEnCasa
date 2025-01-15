@@ -5,12 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../public/stylesheets/style.css" />
-  <title>Detalles de <%= animal.nombre %></title>
+  <title>Detalles de <%= animal.name %></title>
 </head>
 
 <body>
   <header>
-    <h1>Detalles de <%= animal.nombre%></h1>
+    <h1>Detalles de <%= animal.name%></h1>
   </header>
 
   <main>
@@ -18,6 +18,7 @@
     <p><strong>Sexo:</strong> <%= animal.sex %></p>
     <p><strong>Edad:</strong> <%= animal.age %></p>
     <p><strong>Zona:</strong> <%= animal.zone %></p>
+    <a href="/animals.json/<%= animal.id %>">Ver detalles</a>
     <p><strong>Descripción:</strong> <%= animal.description %></p>
     <a href="/">Volver al inicio</a>
   </main>

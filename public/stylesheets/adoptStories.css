@@ -4,6 +4,10 @@ body {
     background-color: #C896EA;
     font-family: "fredoka";
 }
+.description-history{
+    font-size: 25px;
+    margin: 15px;
+}
 .read-more{
     color: #0a0908;
     font-size: 20px;
