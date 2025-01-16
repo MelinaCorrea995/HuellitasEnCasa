@@ -6,12 +6,15 @@ module.exports = {
     const animal = animals.find(a => a.id === animalId); // Busca el animal por ID
 
     if (animal) {
-      res.render('adoptDetail', { animal }); // Renderiza la vista adoptDetail.ejs con los datos del animal encontrado
+      res.render('animals/adoptDetail', { animal }); // Renderiza la vista adoptDetail.ejs con los datos del animal encontrado
     } else {
       res.status(404).render('error', {
         message: 'Animal no encontrado' // Página de error personalizada
       });
     }
+  },
+  adoptStories: (req,res) =>{
+    res.render("animals/adoptStories")
   }
 };
 

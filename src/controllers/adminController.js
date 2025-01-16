@@ -11,12 +11,14 @@ const getAnimals = () => {
 };
 
 // Controlador
-const adminController = {
+module.exports = {
     showAdminPage: (req, res) => {
         const animals = getAnimals(); // Lee los datos del archivo JSON
         res.render('animals/admin', { animals }); // Renderiza la vista y envía los datos
     },
     // Otras funciones (editar, eliminar, etc.) podrían ir aquí
-};
+}
 
-module.exports = adminController;
+
+
+

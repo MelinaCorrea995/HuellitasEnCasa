@@ -36,7 +36,7 @@
     "age": "1 año",
     "zone": "Polvorines",
     "description": "Gala es una gatita tranquila y sociable que busca un hogar lleno de amor.",
-    "image": "/images/galadriel-adopcion.jpg",
+    "image": "/images/galadriel-adopcion.jpeg",
     "adoptado":"false"
   },
   {
@@ -56,7 +56,7 @@
     "age": "6 meses",
     "zone": "Pilar",
     "description": "Guts tiene una historia difícil, pero su espíritu sigue siendo inquebrantable. Fue adoptado hace un tiempo, pero lamentablemente su familia anterior lo dejó en un parque sin avisar a la protectora. Gracias a su chip, pudimos traerlo de vuelta con nosotros. A pesar de lo que ha pasado, Guts no perdió su fe en las personas. Está listo para encontrar un hogar lleno de amor y compromiso, donde realmente lo valoren como se merece. Este pequeño luchador solo necesita una nueva oportunidad para demostrar lo increíble que es como compañero.",
-    "image": "/images/-guts-adopcion.jpg",
+    "image": "/images/guts-adopcion.jpg",
     "adoptado":"false"
   },
   {
@@ -86,7 +86,7 @@
     "age": "1 año",
     "zone": "Devoto",
     "description": "Buscamos una familia para Padme que le de toda la atención y el amor que merece. Necesitaría una casa donde fuese hija única y sin niños",
-    "image": "/images/padme-adopcion.jpg",
+    "image": "/images/padme-adopcion.jpeg",
     "adoptado": "false"
   } 
 
