@@ -10,6 +10,7 @@ const usersRouter = require('./routes/users'); // Corregir el require de usersRo
 const adoptionRoutes = require('./routes/adoptions'); // Asegúrate de que sea adoptionRoutes
 const adminRoutes = require('./routes/admin'); // Este parece estar correcto
 
+
 var app = express();
 
 // Configuración de la vista
