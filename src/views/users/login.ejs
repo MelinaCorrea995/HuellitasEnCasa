@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../public/stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
   <title>Inicia sesión</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,49 +18,8 @@
 </head>
 
 <body class="container">
-  <header class="main-header">
-    <div class="container-nav">
-      <div class="logo-container"> 
-        <a class="navbar-logo" href="/views/index.html">
-          <img src="../public/images/huellitas_en_casa-logo.png" class="logo-nav" alt="logo-huellitas">
-        </a>
-      </div>
-      <nav>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-lista">
-          <li class="nav-item">
-            <a class="nav-link active" href="/views/aboutUs.html">
-              <i class="fa-solid fa-paw"></i> Acerca de
-            </a>
-          </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contacto">
-                <i class="fa-solid fa-paw"></i> Contacto
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/views/adoptStories.html">
-                <i class="fa-solid fa-paw"></i>Historias
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/views/preAdopt.html">
-                <i class="fa-solid fa-paw"></i> Formulario de pre-adopción
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./register.html">
-                <i class="fa-regular fa-circle-user"></i> Registrate
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./login.html">
-                <i class="fa-solid fa-right-to-bracket"></i> Inicia sesión
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+  <%- include('../partials/header') %>
+
   
   <main>
     <div class="titulo-container">
@@ -83,83 +42,8 @@
   </div>
   </main>
 
-  <footer>
-    <div class="footer-content">
-      <div class="footer-logo-container">
-        <img
-          src="../public/images/huellitas_en_casa-logo.png"
-          alt="Huellitas en casa"
-          class="footer-logo"
-        />
-        <p class="footer-direccion">ruta 16 Parc 501</p>
-        <p class="footer-telefono">(549) 11 4465 5161</p>
-      </div>
-      <div class="footer-columns">
-        <div class="footer-column">
-          <h2>Menú</h2>
-          <ul class="footer-list">
-            <li>
-              <a href="/views/aboutUs.html"
-                ><i class="fa-solid fa-paw"></i> Acerca de</a
-              >
-            </li>
-            <li>
-              <a href="#animal-container"
-                ><i class="fa-solid fa-paw"></i> Adopción</a
-              >
-            </li>
-            <li>
-              <a href="#contacto"><i class="fa-solid fa-paw"></i> Contacto</a>
-            </li>
-            <li>
-              <a href="/views/adoptStories.html"><i class="fa-solid fa-paw"></i>Historias</a>
-            </li>
-          </ul>
-        </div>
+  <%- include('../partials/footer') %>
 
-        <div class="footer-column">
-          <h2>Nos encontramos acá</h2>
-          <ul class="footer-list">
-            <li>
-              <a href="https://www.facebook.com/profile.php?id=61571625003086"
-                ><i class="fa-brands fa-square-facebook"></i>Facebook</a
-              >
-            </li>
-            <li>
-              <a href="https://www.instagram.com/huellitasencasa.ar/"
-                ><i class="fa-brands fa-square-instagram"></i>Instagram</a
-              >
-            </li>
-            <li>
-              <a
-                href="mailto:huellitasencasa.ar@gmail.com"
-                title="Envíanos un correo"
-              >
-                <i class="fa-solid fa-envelope"></i> Correo electrónico
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-column">
-        <h4>Newsletter</h4>
-        <form action="https://your-mailchimp-form-action" method="post">
-          <div class="form-group">
-            <input
-              type="email"
-              name="EMAIL"
-              placeholder="Tu correo electrónico"
-              required
-            />
-            <button type="submit" class="btn-submit">Suscríbete</button>
-          </div>
-        </form>
-      </div>
-    </div>
-    <p class="footer-copyright">
-      © 2024 Huellitas en Casa. Todos los derechos reservados.
-    </p>
-  </footer>
 <!-- Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
