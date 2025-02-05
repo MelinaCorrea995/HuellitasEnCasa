@@ -10,5 +10,5 @@ Mantener la práctica de realizar pruebas constantes para evitar errores en prod
 ## 4. Hacer menos (Less Of):
 Evitar procrastinar y hacer reuniones que no aporten valor al equipo y proyecto . 
 ## 5. Dejar de hacer (Stop Doing):
-Eliminar cambios inesperados o sin planificación, ya que generaron interrupciones y confusión.
-Cambios sin consultar al equipo/compañero de proyecto .
+
+Conclusión: Al dejar de lado actividades perjudiciales (como procrastinación o cambios sin planificación), el equipo puede trabajar con mayor enfoque y organización.
