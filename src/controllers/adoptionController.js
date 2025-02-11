@@ -1,4 +1,4 @@
-const animals = require('../../data/animals.json'); // Ajusta la ruta al JSON
+const animals = require('../../data/db.json'); // Ajusta la ruta al JSON
 
 module.exports = {
   adoptDetail: (req, res) => {

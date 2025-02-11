@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 // Rutas
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/adoptions', adoptionRoutes); // Asegúrate de que sea adoptionRoutes
+app.use('/adoption', adoptionRoutes); // Asegúrate de que sea adoptionRoutes
 app.use('/admin', adminRoutes);
 
 // Manejador de errores 404

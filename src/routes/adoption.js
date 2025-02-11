@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const animals = require(path.join(__dirname, '../data/animals.json')); // Ruta al JSON con los datos de animales
+const animals = require(path.join(__dirname, '../data/db.json')); // Ruta al JSON con los datos de animales
 
 // Ruta para mostrar los detalles de un animal
 router.get('/adoptDetail', (req, res) => {

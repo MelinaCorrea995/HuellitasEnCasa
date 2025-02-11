@@ -1,4 +1,4 @@
-const happystory = require('../../data/animals.json');
+const happystory = require('../../data/db.json');
 
 module.exports = {
 adoptDetail: (req, res) => {

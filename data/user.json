@@ -1,0 +1,84 @@
+[
+    {  "id": 1,
+    "firstName": "Melina",
+    "lastName": "Correa",
+    "email": "meliina.correa@example.com",
+    "password": "abcdef",
+    "category": "admin",
+    "image": "https://example.com/image2.jpg"
+    },
+{
+    "id": 2,
+    "firstName": "Jainen",
+    "lastName": "Albornoz",
+    "email": "jainen.albornoz@example.com",
+    "password": "ghijkl",
+    "category": "admin",
+    "image": "https://example.com/image2.jpg"
+    },
+    {
+    "id": 3,
+    "firstName": "Juan",
+    "lastName": "Pérez",
+    "email": "juan.perez@example.com",
+    "password": "123456",
+    "category": "adoptante",
+    "image": "https://example.com/image1.jpg"
+    },
+    {
+    "id": 4,
+    "firstName": "Ana",
+    "lastName": "Gómez",
+    "email": "ana.gomez@example.com",
+    "password": "abcdef",
+    "category": "admin",
+    "image": "https://example.com/image2.jpg"
+    },
+    {
+    "id": 5,
+    "firstName": "Carlos",
+    "lastName": "López",
+    "email": "carlos.lopez@example.com",
+    "password": "qwerty",
+    "category": "adoptante",
+    "image": "https://example.com/image3.jpg"
+    },
+    {
+        "id": 6,
+        "firstName": "Samanta",
+        "lastName": "Ruiz",
+        "email": "RuizSam@example.com",
+        "password": "112233",
+        "category": "adoptante",
+        "image": "https://example.com/image2.jpg"
+        },
+    {
+        "id": 7,
+        "firstName": "Lucas",
+        "lastName": "Garcia",
+        "email": "Garciacarp.14@example.com",
+        "password": "carp14",
+        "category": "adoptante",
+        "image": "https://example.com/image2.jpg"
+        },
+        {
+
+            "id": 8,
+            "firstName": "Daniel",
+            "lastName": "Maciel",
+            "email": "maciel995@example.com",
+            "password": "98745",
+            "category": "adoptante",
+            "image": "https://example.com/image2.jpg"
+            },
+            {
+
+                "id": 9,
+                "firstName": "Gonzalo",
+                "lastName": "Carperi",
+                "email": "carperigg@example.com",
+                "password": "abc123",
+                "category": "adoptante",
+                "image": "https://example.com/image2.jpg"
+                }
+]
