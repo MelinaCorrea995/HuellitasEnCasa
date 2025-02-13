@@ -1,3 +1,5 @@
+//adoptionController.js
+// Importa la base de datos de animales
 const animals = require('../../data/db.json'); // Ajusta la ruta al JSON
 
 module.exports = {
@@ -19,8 +21,3 @@ module.exports = {
 };
 
 
-
-
-
-// adoptstories = happystory.js=happyStoryController.js te lo aclaro por que
-//  ami me mareo tanto nombre iguales para saber que hace que 
