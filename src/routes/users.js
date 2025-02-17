@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { register, login, controllers, showProfile, isAuthenticated } = require('../controllers/userController');
+const { register, login, showProfile, isAuthenticated } = require('../controllers/userController');
 const multer = require('multer');
 const path = require('path');
 const { title } = require('process');
@@ -36,7 +36,6 @@ router.post("/register", upload.single('profileImage'), async (req, res) => {
 // GET /users/login 
 router.get("/login", login);
 // GET /users/register
-router.get("/register", controllers.preAdopt);
 
 // Ruta para mostrar el perfil del usuario (con autenticación)
 router.get('/profile', isAuthenticated, showProfile);
