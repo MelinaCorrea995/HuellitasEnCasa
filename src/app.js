@@ -4,13 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session'); // Importamos express-session
+const multer  = require('multer');
 
 // Importar rutas
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const adoptionRoutes = require('./routes/adoptions');
 const adminRoutes = require('./routes/admin');
-const cors = require('cors');
+// const cors = require('cors');
 
 var app = express();
 
@@ -32,7 +33,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
-app.use(cors());
+
+// app.use(cors());
 
 // Rutas
 app.use('/', indexRouter);
@@ -52,5 +54,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+console.log("servidor corriendo en :http://localhost:3000");
 module.exports = app;

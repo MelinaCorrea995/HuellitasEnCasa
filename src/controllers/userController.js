@@ -107,11 +107,16 @@ async function showProfile(req, res) {
   // Mostrar los datos del usuario en el perfil
   res.render('profile', { user: req.session.user });
 }
+const controllers ={
+  preAdopt: function (req, res,next) {
+    res.render("/users/preAdopt")}
+}
+
 
 module.exports = {
   register,
   login,
-  preAdopt,
+  controllers ,
   showProfile, // Exportamos la función para el perfil
   isAuthenticated // Exportamos el middleware
 };

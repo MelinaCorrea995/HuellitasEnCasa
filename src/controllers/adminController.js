@@ -4,18 +4,18 @@ const path = require('path');
 // Ruta al archivo JSON
 const animalsFilePath = path.join(__dirname, '../data/db.json');
 
-// Función para leer los animales
-const getAnimals = () => {
-    const data = fs.readFileSync(animalsFilePath, 'utf-8');
-    return JSON.parse(data);
-};
-
-// Función para guardar los animales en el archivo JSON
-const saveAnimals = (animals) => {
-    fs.writeFileSync(animalsFilePath, JSON.stringify(animals, null, 2), 'utf-8');
-};
 
 module.exports = {
+    // Función para leer los animales
+    getAnimals : () => {
+        const data = fs.readFileSync(animalsFilePath, 'utf-8');
+        return JSON.parse(data);
+    },
+    
+    // Función para guardar los animales en el archivo JSON
+    saveAnimals : (animals) => {
+        fs.writeFileSync(animalsFilePath, JSON.stringify(animals, null, 2), 'utf-8');
+    },
     // Mostrar la página de administración con los animales
     showAdminPage: (req, res) => {
         const animals = getAnimals(); // Lee los datos del archivo JSON

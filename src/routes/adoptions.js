@@ -8,14 +8,14 @@ const {
 
 const {
   createAnimal,
-  getAllAnimals,
+  getAnimals,
   getAnimalById,
   updateAnimal,
   deleteAnimal
 } = require("../controllers/adminController"); // Importar desde adminController
 
 // Ruta para obtener todos los animales (Leer)
-router.get('/', getAllAnimals);
+router.get('/', getAnimals);
 
 // Ruta para obtener los detalles de un animal por su ID (Leer)
 router.get('/adoptDetail/:id', adoptDetail);
