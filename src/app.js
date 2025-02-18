@@ -44,7 +44,6 @@ app.use('/admin', adminRoutes);
 
 // Manejador de errores 404
 app.use(function(req, res, next) {
-  next(createError(404));
 });
 
 // Manejador de errores

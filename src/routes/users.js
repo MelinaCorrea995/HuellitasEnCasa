@@ -34,9 +34,15 @@ router.post("/register", upload.single('profileImage'), async (req, res) => {
 });
 
 // GET /users/login 
-router.get("/login", login);
-// GET /users/register
+// router.get("login"/login)
+router.get("/login", (req,res) => { 
+  res.render("users/login");
+});
 
+// GET /users/register
+router.get("/register", (req,res) => {
+  res.render("users/register");
+});
 // Ruta para mostrar el perfil del usuario (con autenticación)
 router.get('/profile', isAuthenticated, showProfile);
 
