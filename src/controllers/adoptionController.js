@@ -1,6 +1,6 @@
 //adoptionController.js
 // Importa la base de datos de animales
-const animals = require('../../data/db.json'); // Ajusta la ruta al JSON
+const animals = require('../data/db.json'); // Ajusta la ruta al JSON
 
 module.exports = {
   adoptDetail: (req, res) => {
@@ -17,7 +17,13 @@ module.exports = {
   },
   adoptStories: (req,res) =>{
     res.render("animals/adoptStories")
+  },
+  preadoptForm: (req, res) => {
+    const datos = req.body;
+    console.log('Formulario preadopción recibido:', datos);
+    res.render('animals/preadoptThanks', { nombre: datos.nombre });
   }
+
 };
 
 

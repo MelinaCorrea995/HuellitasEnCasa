@@ -23,7 +23,7 @@ router.post("/register", upload.single('profileImage'), async (req, res) => {
   try {
     const userData = req.body; // Obtener datos del formulario
     const imagePath = req.file ? req.file.path : ''; // Ruta de la imagen subida (si existe)
-
+    console.log("holaa")
     // Llamamos al controlador para guardar los datos (encriptación de la contraseña y guardado)
     await register(userData, imagePath); 
 
@@ -38,6 +38,28 @@ router.post("/register", upload.single('profileImage'), async (req, res) => {
 router.get("/login", (req,res) => { 
   res.render("users/login");
 });
+router.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await login(email, password);
+
+    if (!user) {
+      return res.render("users/login", { error: "Credenciales inválidas" });
+    }
+
+    req.session.user = user;
+    res.redirect("/users/profile");
+
+  } catch (error) {
+    console.error("Error al iniciar sesión:", error);
+    res.status(500).send("Error al iniciar sesión");
+  }
+});
+
+router.get('/preAdopt', (req, res) => {
+  res.render('animals/preAdopt');
+});
 
 // GET /users/register
 router.get("/register", (req,res) => {
@@ -46,8 +68,6 @@ router.get("/register", (req,res) => {
 // Ruta para mostrar el perfil del usuario (con autenticación)
 router.get('/profile', isAuthenticated, showProfile);
 
-
-//Exportamos el router
 module.exports = router;
 
 

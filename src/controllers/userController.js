@@ -56,39 +56,65 @@ async function getUserByEmail(email) {
 }
 
 // Función para registrar el usuario
-async function register(userData, imagePath) {
-  try {
-    await saveUserData(userData, imagePath);
-  } catch (error) {
-    throw new Error('Error al registrar el usuario');
-  }
-}
+// async function register(userData, imagePath) {
+//   try {
+//     await saveUserData(userData, imagePath);
+//   } catch (error) {
+//     throw new Error('Error al registrar el usuario');
+//   }
+// }const bcrypt = require("bcryptjs");
+
+const register = async (req, res) => {
+  const { nombre, email, password } = req.body;
+
+  const hashedPassword = bcrypt.hashSync(password, 10);
+
+  await User.create({ nombre, email, password: hashedPassword });
+  res.redirect("/login");
+};
+
 
 // Función para manejar el login del usuario
-async function login(req, res) {
+// async function login(req, res) {
+//   const { email, password } = req.body;
+
+//   try {
+//     // Buscar el usuario por su email
+//     const user = await getUserByEmail(email);
+    
+//     if (!user) {
+//       return res.status(400).send('Email o contraseña incorrectos');
+//     }
+
+//     // Verificar la contraseña con bcrypt
+//     const isPasswordValid = await comparePassword(password, user.password);
+//     if (!isPasswordValid) {
+//       return res.status(400).send('Email o contraseña incorrectos');
+//     }
+
+//     // Aquí puedes manejar la sesión o redirigir al perfil
+//     req.session.user = user; // Usando express-session para guardar la sesión
+//     res.redirect('/profile');  // Redirigir al perfil o a la página deseada
+//   } catch (error) {
+//     res.status(500).send('Error al iniciar sesión');
+//   }
+// }
+const login = async (req, res) => {
   const { email, password } = req.body;
 
-  try {
-    // Buscar el usuario por su email
-    const user = await getUserByEmail(email);
-    
-    if (!user) {
-      return res.status(400).send('Email o contraseña incorrectos');
-    }
+  const user = await User.findOne({ where: { email } });
+  if (!user) return res.send("Usuario no encontrado");
 
-    // Verificar la contraseña con bcrypt
-    const isPasswordValid = await comparePassword(password, user.password);
-    if (!isPasswordValid) {
-      return res.status(400).send('Email o contraseña incorrectos');
-    }
+  const validPassword = bcrypt.compareSync(password, user.password);
+  if (!validPassword) return res.send("Contraseña incorrecta");
 
-    // Aquí puedes manejar la sesión o redirigir al perfil
-    req.session.user = user; // Usando express-session para guardar la sesión
-    res.redirect('/profile');  // Redirigir al perfil o a la página deseada
-  } catch (error) {
-    res.status(500).send('Error al iniciar sesión');
+  req.session.user = user; // Guardamos al usuario en sesión
+  res.redirect("/profile");
+  if (req.body.remember) {
+    res.cookie("userEmail", user.email, { maxAge: 1000 * 60 * 60 * 24 * 30 }); // 30 días
   }
-}
+  
+};
 
 // Middleware de autenticación
 function isAuthenticated(req, res, next) {

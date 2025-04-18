@@ -21,7 +21,8 @@ app.set('views', path.join(__dirname, 'views')); // Definir la carpeta donde est
 app.use('/', indexRoutes); // Ruta de la página de inicio
 app.use('/admin', adminRoutes); // Ruta para administración
 app.use('/adoption', adoptionRoutes); // Ruta para adopciones
-app.use('/users', usersRoutes); // Ruta para usuarios
+// app.use('/users', usersRoutes); // Ruta para usuarios
+app.use('/users', require('./routes/users'));
 
 // Iniciar el servidor
 app.listen(PORT, () => {
