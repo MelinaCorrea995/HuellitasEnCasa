@@ -13,12 +13,15 @@ module.exports = {
         type: Sequelize.STRING
       },
       age: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       sex: {
         type: Sequelize.STRING
       },
       description: {
+        type: Sequelize.TEXT
+      },
+      image: {
         type: Sequelize.STRING
       },
       specieId: {

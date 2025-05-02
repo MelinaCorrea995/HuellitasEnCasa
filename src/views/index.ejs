@@ -25,8 +25,8 @@
       <h2 id="titulo-container">Animales en Adopción</h2>
       <div class="animales animal-list">
         <article class="animal">
-          <% animals.forEach(({id,name, sex, age, zone, description, image})=> { %>
-          <img src="<%= image %>" alt="img-animal" class="pets" />
+          <% animals.forEach(({id,name, sex, age, city, description, image})=> { %>
+          <img src="/images/<%= image %>" alt="img-animal" class="pets" />
           <div class="detalles-animal">
             <li class="nav-item">
               <a class="nav-link" href="/adoptions/preAdopt">
@@ -38,7 +38,7 @@
             <div class="descripcion-animal">
               <p class="sexo">Sexo: <%= sex %></p>
               <p class="edad">Edad : <%= age %></p>
-              <p class="zona">Zona : <%= zone %></p>
+              <p class="zona">Zona : <%= city.name %>, <%= city.province %></p>
               <button>
                 <a href="/adoptions/adoptDetail/<%= id %>"><i class="fa-solid fa-bone"></i> Leer más</a>
               </button>
