@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
         as : 'city',
         foreignKey : 'cityId'
       })
+      Animal.belongsTo(models.Specie, {
+        as : 'specie',
+        foreignKey : 'specieId'
+      })
     }
   }
   Animal.init({

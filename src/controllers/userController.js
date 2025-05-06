@@ -1,144 +1,93 @@
-const bcrypt = require('bcryptjs');
-const fs = require('fs');
-const path = require('path');
-
-// Encriptar la contraseña
-async function encryptPassword(password) {
-  try {
-    const saltRounds = 10;
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
-    return hashedPassword;
-  } catch (error) {
-    throw new Error('Error al encriptar la contraseña');
-  }
-}
-
-// Comparar la contraseña ingresada con la almacenada
-async function comparePassword(inputPassword, storedPassword) {
-  try {
-    return await bcrypt.compare(inputPassword, storedPassword);
-  } catch (error) {
-    throw new Error('Error al comparar las contraseñas');
-  }
-}
-
-// Guardar los datos del usuario en el archivo JSON
-async function saveUserData(userData, imagePath) {
-  try {
-    const usersFilePath = path.join(__dirname, '../data/users.json');
-    let users = [];
-    
-    if (fs.existsSync(usersFilePath)) {
-      users = JSON.parse(fs.readFileSync(usersFilePath));
-    }
-    
-    const newUser = {
-      ...userData,
-      password: await encryptPassword(userData.password), // Encriptar la contraseña
-      profileImage: imagePath // Guardar la ruta de la imagen
-    };
-
-    users.push(newUser);
-    fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-  } catch (error) {
-    throw new Error('Error al guardar los datos del usuario');
-  }
-}
-
-// Buscar un usuario por su email
-async function getUserByEmail(email) {
-  try {
-    const users = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/users.json')));
-    return users.find(user => user.email === email); // Devolver el usuario que coincida con el email
-  } catch (error) {
-    throw new Error('Error al buscar el usuario');
-  }
-}
-
-// Función para registrar el usuario
-// async function register(userData, imagePath) {
-//   try {
-//     await saveUserData(userData, imagePath);
-//   } catch (error) {
-//     throw new Error('Error al registrar el usuario');
-//   }
-// }const bcrypt = require("bcryptjs");
+const db = require('../database/models');
+const { hashSync } = require('bcrypt');
 
 const register = async (req, res) => {
-  const { nombre, email, password } = req.body;
+  try {
+    const cities = await db.City.findAll({
+      order: [
+        ['name', 'ASC']
+      ]
+    })
+    return res.render("users/register", {
+      cities
+    });
 
-  const hashedPassword = bcrypt.hashSync(password, 10);
-
-  await User.create({ nombre, email, password: hashedPassword });
-  res.redirect("/login");
+  } catch (error) {
+    console.log(error);
+  }
 };
 
+const processRegister = async (req, res) => {
+  const { name, surname, email, password, phone, address, cityId} = req.body;
 
-// Función para manejar el login del usuario
-// async function login(req, res) {
-//   const { email, password } = req.body;
+  const hashedPassword = hashSync(password, 10);
 
-//   try {
-//     // Buscar el usuario por su email
-//     const user = await getUserByEmail(email);
-    
-//     if (!user) {
-//       return res.status(400).send('Email o contraseña incorrectos');
-//     }
+  await db.User.create({ 
+    name : name.trim(),
+    surname: surname.trim(),
+    email: email.trim(), 
+    password: hashedPassword,
+    phone: phone.trim(),
+    address: address.trim(),
+    cityId,
+    rolId : 2 
+  });
+  return res.redirect("/users/login");
+};
 
-//     // Verificar la contraseña con bcrypt
-//     const isPasswordValid = await comparePassword(password, user.password);
-//     if (!isPasswordValid) {
-//       return res.status(400).send('Email o contraseña incorrectos');
-//     }
-
-//     // Aquí puedes manejar la sesión o redirigir al perfil
-//     req.session.user = user; // Usando express-session para guardar la sesión
-//     res.redirect('/profile');  // Redirigir al perfil o a la página deseada
-//   } catch (error) {
-//     res.status(500).send('Error al iniciar sesión');
-//   }
-// }
 const login = async (req, res) => {
-  const { email, password } = req.body;
-
-  const user = await User.findOne({ where: { email } });
-  if (!user) return res.send("Usuario no encontrado");
-
-  const validPassword = bcrypt.compareSync(password, user.password);
-  if (!validPassword) return res.send("Contraseña incorrecta");
-
-  req.session.user = user; // Guardamos al usuario en sesión
-  res.redirect("/profile");
-  if (req.body.remember) {
-    res.cookie("userEmail", user.email, { maxAge: 1000 * 60 * 60 * 24 * 30 }); // 30 días
-  }
-  
-};
-
-// Middleware de autenticación
-function isAuthenticated(req, res, next) {
-  if (req.session.user) {
-    return next(); // Si está logueado, pasa al siguiente middleware o ruta
-  }
-  res.redirect('/users/login'); // Si no está logueado, redirige al login
+  return res.render("users/login");
 }
+
+const processLogin = async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    const user = await db.User.findOne({
+      where: {
+        email
+      }
+    });
+
+  req.session.userLogin = {
+    id: user.id,
+    name: user.name,
+    rol: user.rolId
+  }; // Guardamos al usuario en sesión
+  
+  if (req.body.remember) {
+    res.cookie("userLoginHuellitas", req.session.userLogin, { maxAge: 1000 * 60 * 60 * 24 * 30 }); // 30 días
+  }
+
+  return res.redirect("/users/profile");
+
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // Función para mostrar el perfil del usuario (con autenticación)
 async function showProfile(req, res) {
-  if (!req.session.user) {
-    return res.redirect('/users/login'); // Si no está logueado, redirige al login
-  }
-
+  const user = await db.User.findByPk(req.session.userLogin.id,{
+      include: [
+        {
+          association: "rol"
+        },
+        {
+          association: "city"
+        }
+      ]
+}) 
   // Mostrar los datos del usuario en el perfil
-  res.render('profile', { user: req.session.user });
+  res.render('users/profile', { user});
 }
 
 module.exports = {
+  processRegister,
   register,
   login,
+  processLogin,
   showProfile, // Exportamos la función para el perfil
-  isAuthenticated // Exportamos el middleware
 };
     
     // En el código anterior, hemos creado la función  showProfile  que se encarga de mostrar el perfil del usuario. Esta función verifica si el usuario está autenticado y, si lo está, muestra los datos del usuario en la vista del perfil. 
