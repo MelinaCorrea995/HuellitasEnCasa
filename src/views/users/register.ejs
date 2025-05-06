@@ -25,26 +25,28 @@
     <div class="formulario">
       <h1>¡Bienvenido@ a la familia!</h1>
       <p>Para finalizar la adopción, por favor completa el siguiente formulario</p>
-      <form action="/users/register" method="POST" enctype="multipart/form-data">
+      <form action="/users/register" method="POST" >
         <div class="registro">
           <label for="username">Nombre:</label>
-          <input type="text" name="nombre" placeholder="Ingresa tu nombre" required />
+          <input type="text" name="name" placeholder="Ingresa tu nombre"  />
           <label for="username">Apellido:</label>
-          <input type="text" name="apellido" placeholder="Ingresa tu apellido" required />
+          <input type="text" name="surname" placeholder="Ingresa tu apellido"  />
           <label for="Email">Correo electronico:</label>
-          <input type="email" name="Email" id="email" placeholder="Ingresa tu email" />
+          <input type="email" name="email" id="email" placeholder="Ingresa tu email" />
+          <label for="password">Contraseña:</label>
+          <input type="password" name="password" placeholder="Ingresa tu contraseña"  />
+          <label for="password2">Confirma tu contraseña:</label>
+          <input type="password" name="password2" placeholder="Ingresa tu contraseña"  />
           <label for="phone">Teléfono:</label>
           <input type="number" id="phone" name="phone" placeholder="Ingresa tu teléfono" />
           <label for="Domicilio">Dirección:</label>
-          <input type="text" id="Domicilio" name="Domicilio" placeholder="Domicilio" />
-          <label for="text">¿Como te enteraste de nosotros?:</label>
-          <select id="text" name="" required>
-            <option value=""></option>
-            <option value="es">Facebook</option>
-            <option value="mx">Instagram</option>
-            <option value="ar">Twitter</option>
-            <option value="co">Ya adopte</option>
-            <option value="cl">Otro</option>
+          <input type="text" id="Domicilio" name="address" placeholder="Domicilio" />
+          <label for="text">Zona</label>
+          <select id="text" name="cityId" >
+            <option value="" hidden selected>Seleccione...</option>
+            <% cities.forEach(city => { %>
+             <option value="<%= city.id %>"><%= city.name %> / <%= city.province %> </option>
+            <% }) %>
           </select>
           <button class="btn-submit" type="submit">Enviar</button>
         </div>
