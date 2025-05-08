@@ -1,11 +1,129 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil de usuario</title>
-</head>
-<body>
-    <h1>Perfil de Usuario</h1>
-</body>
+<html lang="es">
+<%- include('../partials/head') %>
+
+    <body>
+        <%- include('../partials/header') %>
+            <div class="container profile-wrapper">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="profile-title">Mi Perfil</h2>
+                    </div>
+                    <div class="col-12 p-4">
+                        <form action="/users/update/<%= user.id %>?_method=PUT" method="POST"
+                            enctype="multipart/form-data">
+                            <div class="row profile-detail">
+                                <div class="col-12 col-md-4 gap-3 p-3 d-flex flex-column align-items-center">
+                                    <img src="/images/users/<%= user.avatar || 'default.png' %>" id="imgAvatar"
+                                        class="img-fluid" alt="avatar"
+                                        style="width: 80%; object-fit: cover; object-position: top;">
+                                    <div class="form-group w-75">
+                                        <input type="file" class="form-control" id="avatar" name="avatar"
+                                            accept="image/*">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <div class="row">
+                                        <div class="form-group col-12 col-md-6">
+                                            <label for="inputNombre" class="form-label">Nombre</label>
+                                            <input type="text" name="name" class="form-input form-control"
+                                                id="inputNombre" value="<%= user.name %>">
+                                        </div>
+                                        <div class="form-group col-12 col-md-6">
+                                            <label for="inputApellido" class="form-label">Apellido</label>
+                                            <input type="text" name="surname" class="form-input form-control"
+                                                id="inputApellido" value="<%= user.surname %>">
+                                        </div>
+                                        <div class="form-group col-12 col-md-6">
+                                            <label for="inputUsername" class="form-label">Nombre de Usuario</label>
+                                            <input type="text" name="username" class="form-input form-control"
+                                                id="inputUsername" value="<%= user.username %>"
+                                                pattern="[a-zA-Z0-9_]{3,16}"
+                                                title="3-16 caracteres, solo letras, números y guiones bajos">
+                                        </div>
+                                        <div class="form-group col-12 col-md-6">
+                                            <label for="imputEmail" class="form-label">Email</label>
+                                            <input type="email" name="email" class="form-input form-control"
+                                                id="imputEmail" value="<%= user.email %>" disabled>
+                                        </div>
+                                        <div class="form-group col-12">
+                                            <label for="inputPassword" class="form-label">Nueva Contraseña</label>
+                                            <input type="password" name="password" class="form-input form-control"
+                                                id="inputPassword" minlength="8"
+                                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                                                title="Mínimo 8 caracteres, incluyendo mayúsculas, minúsculas, números y símbolos">
+                                        </div>
+                                        <div class="form-group col-12">
+                                            <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
+                                            <input type="password" name="confirmPassword"
+                                                class="form-input form-control" id="confirmPassword">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-md-flex justify-content-end gap-2">
+                                <button type="button" class="action-button edit">
+                                    <a href="/" class="text-light">Salir sin guardar</a>
+                                </button>
+                                <button type="submit" class="buy-now-button">Actualizar datos</button>
+                            </div>
+                        </form>
+                        <!-- Historias de Adopción -->
+                        <div class="adoption-stories mt-4">
+                            <h3>Mi Historia de Adopción</h3>
+                            <div class="story-form">
+                                <form action="../animals/adoptStories.ejs" method="POST">
+                                    <div class="form-group">
+                                        <label for="storyTitle" class="form-label">Título de la Historia</label>
+                                        <input type="text" name="title" class="form-input form-control" id="storyTitle"
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="storyContent" class="form-label">Tu Historia</label>
+                                        <textarea name="content" class="form-input form-control" id="storyContent"
+                                            rows="5" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="storyDate" class="form-label">Fecha de Adopción</label>
+                                        <input type="date" name="adoptionDate" class="form-input form-control"
+                                            id="storyDate" required>
+                                    </div>
+                                    <button type="submit" class="buy-now-button">Compartir Historia</button>
+                                </form>
+                            </div>
+                            <!-- Lista de Historias -->
+                            <div class="story-list mt-4">
+                                <% if (user.stories && user.stories.length> 0) { %>
+                                    <% user.stories.forEach(story=> { %>
+                                        <div class="story-card">
+                                            <h4>
+                                                <%= story.title %>
+                                            </h4>
+                                            <p class="story-date">Fecha: <%= story.adoptionDate %>
+                                            </p>
+                                            <p>
+                                                <%= story.content %>
+                                            </p>
+                                            <div class="story-actions">
+                                                <a href="/stories/<%= story.id %>/edit"
+                                                    class="action-button edit">Editar</a>
+                                                <form action="/stories/<%= story.id %>/delete" method="POST"
+                                                    style="display: inline;">
+                                                    <button type="submit" class="btn-sm btn-danger">Eliminar</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <% }); %>
+                                            <% } else { %>
+                                                <p>Aún no has compartido ninguna historia de adopción.</p>
+                                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%- include('../partials/footer') %>
+    </body>
+
 </html>

@@ -18,6 +18,13 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
+      image: {
+        type: Sequelize.STRING
+      },
+      validate: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
       password: {
         type: Sequelize.STRING
       },
@@ -31,7 +38,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: {
-            tableName:'Cities',
+            tableName: 'Cities',
           },
           key: 'id'
         }
@@ -40,7 +47,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: {
-            tableName:'Roles',
+            tableName: 'Roles',
           },
           key: 'id'
         }

@@ -1,6 +1,127 @@
 const db = require('../database/models');
 const { hashSync } = require('bcrypt');
+const { check } = require("express-validator");
 
+
+let databaseConnection;
+try {
+    databaseConnection = require('../database/models');
+} catch (error) {
+    console.error('Error al conectar la base de datos:', error);
+}
+
+// const db = require("../database/models");
+// const { compareSync } = require("bcrypt");
+
+const userLoginValidator = [
+    check("email")
+        .notEmpty().withMessage("El email es requerido"),
+    check("password")
+        .notEmpty().withMessage("La contraseña es requerida").bail()
+        .custom((value, { req }) => {
+            return db.User.findOne({ where: { email: req.body.email } })
+            .then((user) => {                
+                if (!user || !compareSync(value, user.password)) {
+                    return Promise.reject(
+                        new Error("Las credenciales son inválidas")
+                    );
+                }
+            })
+            .catch((error) => {
+                console.log(error);       
+                return Promise.reject(
+                    new Error(error ? error.message : "Error al verificar las credenciales")
+                );
+            })
+        })
+]
+
+
+const profileUpdateValidator = [
+  check("name")
+      .notEmpty().withMessage("El nombre es requerido")
+      .trim(),
+  check("surname")
+      .notEmpty().withMessage("El apellido es requerido")
+      .trim(),
+  check("email")
+      .notEmpty().withMessage("El email es requerido")
+      .isEmail().withMessage("El email debe ser válido")
+      .trim()
+      .custom(async (value, { req }) => {
+          const user = await db.User.findOne({
+              where: { email: value, id: { $ne: req.session.userLogin.id } }
+          });
+          if (user) {
+              throw new Error("Este email ya está en uso");
+          }
+          return true;
+      }),
+  check("username")
+      .optional()
+      .matches(/^[a-zA-Z0-9_]{3,16}$/).withMessage("El nombre de usuario debe tener entre 3 y 16 caracteres, solo letras, números y guiones bajos")
+      .trim()
+      .custom(async (value, { req }) => {
+          if (!value) return true;
+          const user = await db.User.findOne({
+              where: { username: value, id: { $ne: req.session.userLogin.id } }
+          });
+          if (user) {
+              throw new Error("Este nombre de usuario ya está en uso");
+          }
+          return true;
+      }),
+  check("password")
+      .optional()
+      .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
+      .withMessage("La contraseña debe tener al menos 8 caracteres, incluyendo mayúsculas, minúsculas, números y símbolos"),
+  check("confirmPassword")
+      .optional()
+      .custom((value, { req }) => {
+          if (req.body.password && !value) {
+              throw new Error("Debes confirmar la contraseña");
+          }
+          if (value && value !== req.body.password) {
+              throw new Error("Las contraseñas no coinciden");
+          }
+          return true;
+      })
+];
+
+// Función para mostrar el perfil del usuario (con autenticación)
+async function showProfile(req, res) {
+  const user = await db.User.findByPk(req.session.userLogin.id,{
+      include: [
+        {
+          association: "rol"
+        },
+        {
+          association: "city"
+        }
+      ]
+}) 
+  // Mostrar los datos del usuario en el perfil
+  res.render('users/profile', { user});
+}
+ db.User.update({
+  name: name.trim(),
+  surname: surname.trim(),
+  email: email.trim(),
+  username: username ? username.trim() : undefined,
+  password: password ? hashSync(password, 10) : undefined
+}, {
+  where: { id: userId }
+});
+
+// Actualizar sesión
+const updatedUser = await db.User.findByPk(userId);
+req.session.userLogin = {
+  id: updatedUser.id,
+  name: updatedUser.name,
+  rol: updatedUser.rolId
+};
+
+module.exports = userLoginValidator
 const register = async (req, res) => {
   try {
     const cities = await db.City.findAll({
@@ -66,21 +187,6 @@ const processLogin = async (req, res) => {
   }
 };
 
-// Función para mostrar el perfil del usuario (con autenticación)
-async function showProfile(req, res) {
-  const user = await db.User.findByPk(req.session.userLogin.id,{
-      include: [
-        {
-          association: "rol"
-        },
-        {
-          association: "city"
-        }
-      ]
-}) 
-  // Mostrar los datos del usuario en el perfil
-  res.render('users/profile', { user});
-}
 
 module.exports = {
   processRegister,
@@ -89,12 +195,5 @@ module.exports = {
   processLogin,
   showProfile, // Exportamos la función para el perfil
 };
-    
-    // En el código anterior, hemos creado la función  showProfile  que se encarga de mostrar el perfil del usuario. Esta función verifica si el usuario está autenticado y, si lo está, muestra los datos del usuario en la vista del perfil. 
-    // Para verificar si el usuario está autenticado, hemos creado un middleware llamado  isAuthenticated  que verifica si el usuario tiene una sesión activa. Si el usuario no está autenticado, redirige al usuario a la página de inicio de sesión.
-    // En la función  showProfile , hemos utilizado la propiedad  req.session.user  para obtener los datos del usuario que está autenticado. Esta propiedad se establece cuando el usuario inicia sesión y se almacena en la sesión del servidor.
-    // Para utilizar la sesión en Express, necesitamos instalar el paquete  express-session . Este paquete nos permite almacenar la sesión del usuario en el servidor y acceder a ella en las peticiones posteriores. Para instalar el paquete, ejecuté el siguiente comando: npm install express-session. 
-    // Luego, configuramos la sesión en nuestra aplicación Express de la siguiente manera:  app.use(session ({ secret: 'mySecretKey', resave: false, saveUninitialized: false })); .
-    
 
 
