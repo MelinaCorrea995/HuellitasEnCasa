@@ -103,18 +103,33 @@ async function showProfile(req, res) {
   // Mostrar los datos del usuario en el perfil
   res.render('users/profile', { user});
 }
- db.User.update({
-  name: name.trim(),
-  surname: surname.trim(),
-  email: email.trim(),
-  username: username ? username.trim() : undefined,
-  password: password ? hashSync(password, 10) : undefined
-}, {
-  where: { id: userId }
-});
+async function actualizarUsuario(userId, name, surname, email, username, password) {
+  try {
+      const resultado = await dbUser.update({
+          name: name.trim(),
+          surname: surname.trim(),
+          email: email.trim(),
+          username: username ? username.trim() : undefined,
+          password: password ? hashSync(password, 10) : undefined
+      }, {
+          where: { id: userId }
+      });
+
+      return resultado;
+  } catch (error) {
+      console.error('Error al actualizar el usuario:', error);
+      throw error;
+  }
+}
 
 // Actualizar sesión
-const updatedUser = await db.User.findByPk(userId);
+// const updatedUser = await db.User.findByPk(userId); 
+
+async function actualizarSesion(paramuserId) {
+  const updatedUser = await db.User.findByPk(userId);
+  return updatedUser;
+  
+}
 req.session.userLogin = {
   id: updatedUser.id,
   name: updatedUser.name,
