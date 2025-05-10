@@ -11,6 +11,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const adoptionRoutes = require('./routes/adoptions');
 const adminRoutes = require('./routes/admin');
+const userLocals = require('./middleware/userLocals');
 // const cors = require('cors');
 
 var app = express();
@@ -20,8 +21,9 @@ app.use(session({
   secret: 'mySecret', // Cambia esto por una cadena secreta más segura en producción
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false } // Asegúrate de configurarlo correctamente si usas HTTPS
 }));
+
+app.use(userLocals)
 
 // Configuración de la vista
 app.set('views', path.join(__dirname, './views'));

@@ -1,8 +1,5 @@
 // Middleware de autenticación
 function isAuthenticated(req, res, next) {
-  console.log({
-    userLogin: req.session.userLogin
-  });
   
     if (req.session.userLogin) {
       return next(); // Si está logueado, pasa al siguiente middleware o ruta
