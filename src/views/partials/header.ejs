@@ -27,6 +27,18 @@
               <i class="fa-solid fa-paw"></i>  Formulario de pre-adopción
             </a>
           </li>
+          <% if (locals.userLogin) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/profile">
+                <i class="fa-regular fa-circle-user"></i> Mi perfil
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/logout">
+                <i class="fa-solid fa-right-to-bracket"></i> Cerrar sesión
+              </a>
+            </li>
+          <% } else { %>
           <li class="nav-item">
             <a class="nav-link" href="/users/register">
               <i class="fa-regular fa-circle-user"></i> Registrate
@@ -37,6 +49,7 @@
               <i class="fa-solid fa-right-to-bracket"></i> Inicia sesión
             </a>
           </li>
+          <% } %>
         </ul>
       </nav>
     </div>
