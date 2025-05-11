@@ -7,7 +7,17 @@
 <body class="container">
     <%- include('partials/header') %>
 
-
+    <form action="/animals/<%= animal.id %>/adopt" method="POST">
+        <div>
+            <label>Nombre del adoptante:</label>
+            <input type="text" name="adoptante[nombre]" required>
+        </div>
+        <div>
+            <label>Contacto:</label>
+            <input type="email" name="adoptante[email]" required>
+        </div>
+        <button type="submit">Adoptar</button>
+    </form> 
     <a href="./index.html">← Volver a la lista</a>
     <section id="detalle-animal">
         <h1 id="Aragorn"></h1>

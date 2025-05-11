@@ -17,6 +17,7 @@ router.get('/preAdopt', (req, res) => {
   }
 });
 
+app.post('/animals/:id/adopt', controllers.adoptProcess);
 // ruta para procesar el formulario (POST)
 router.post('/preadopcion', adoptController.preadoptForm);
 
