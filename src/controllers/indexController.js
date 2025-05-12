@@ -14,5 +14,8 @@ module.exports = {
     },
     aboutUs: (req,res) =>{
         res.render("aboutUs")
-    }
+    },
+    admin : (req,res) => {
+        res.render("admin")
+    }   
 }

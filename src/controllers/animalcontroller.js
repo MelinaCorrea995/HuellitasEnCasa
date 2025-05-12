@@ -2,7 +2,7 @@ const animals = [];
 
 module.exports = {
     // Obtener todos los animales
-    getAllAnimals: (req, res) => {
+    getAnimals: (req, res) => {
         res.status(200).json({ data: animals });
     },
 

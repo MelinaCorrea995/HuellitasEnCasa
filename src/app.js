@@ -10,7 +10,7 @@ const multer  = require('multer');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const adoptionRoutes = require('./routes/adoptions');
-const adminRoutes = require('./routes/admin');
+const animalRoutes = require('./routes/animals');
 const userLocals = require('./middleware/userLocals');
 // const cors = require('cors');
 
@@ -44,10 +44,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/adoptions', adoptionRoutes);
-app.use('/admin', adminRoutes);
+app.use('/animals', animalRoutes);
 
 // Manejador de errores 404
 app.use(function(req, res, next) {
+  next(createError(404));
 });
 
 // Manejador de errores
@@ -57,5 +58,4 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-console.log("servidor corriendo en :http://localhost:3000");
 module.exports = app;

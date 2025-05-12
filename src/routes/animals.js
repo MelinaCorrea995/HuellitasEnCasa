@@ -1,10 +1,6 @@
 // adminController.js contiene las funciones que se encargan de manejar las solicitudes HTTP para la administración de animales. En este caso, se encargan de mostrar la página de administración, crear un nuevo animal, editar un animal existente y eliminar un animal
 const express = require('express');
 const router = express.Router();
-const {
-  adoptDetail,
-  adoptStories
-} = require("../controllers/adoptionController"); // Importar desde adoptionController
 
 const {
   createAnimal,
@@ -17,11 +13,8 @@ const {
 // Ruta para obtener todos los animales (Leer)
 router.get('/', getAnimals);
 
-// Ruta para obtener los detalles de un animal por su ID (Leer)
-router.get('/adoptDetail/:id', adoptDetail);
-
-// Ruta para ver todas las historias de adopción (Leer)
-router.get("/adoptStories", adoptStories);
+// Ruta para obtener un animal por su ID (Leer)
+router.get('/:id', getAnimalById);
 
 // Ruta para crear un nuevo animal (Crear)
 router.post('/', createAnimal);
