@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session'); // Importamos express-session
-const multer  = require('multer');
+const methodOverride = require('method-override'); // Importamos method-override
 
 // Importar rutas
 const indexRouter = require('./routes/index');
@@ -23,7 +23,7 @@ app.use(session({
   saveUninitialized: true,
 }));
 
-app.use(userLocals)
+app.use(userLocals);
 
 // Configuración de la vista
 app.set('views', path.join(__dirname, './views'));
@@ -36,7 +36,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.urlencoded({ extended: true }));
-
+app.use(methodOverride('_method')); // Utiliza el parámetro _method para enviar solicitudes PUT y DELETE desde formularios HTML
 
 // app.use(cors());
 

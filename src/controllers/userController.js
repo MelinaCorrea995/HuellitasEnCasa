@@ -2,6 +2,26 @@ const { validationResult } = require('express-validator');
 const db = require('../database/models');
 const { hashSync } = require('bcrypt');
 
+const list = async (req, res) => {
+  try {
+    const users = await db.User.findAll({
+      include: [
+        {
+          association: "rol"
+        },
+        {
+          association: "city"
+        }
+      ]
+    });
+    return res.render("users/usersList", {
+      users
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const register = async (req, res) => {
   try {
     const cities = await db.City.findAll({
@@ -134,6 +154,7 @@ function logout(req, res) {
 };
 
 module.exports = {
+  list,
   processRegister,
   register,
   login,
