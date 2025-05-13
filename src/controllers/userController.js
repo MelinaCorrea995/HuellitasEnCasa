@@ -1,3 +1,4 @@
+const { validationResult } = require('express-validator');
 const db = require('../database/models');
 const { hashSync } = require('bcrypt');
 
@@ -18,21 +19,40 @@ const register = async (req, res) => {
 };
 
 const processRegister = async (req, res) => {
-  const { name, surname, email, password, phone, address, cityId } = req.body;
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      const cities = await db.City.findAll({
+        order: [
+          ['name', 'ASC']
+        ]
+      })
+      return res.render("users/register", {
+        errors: errors.mapped(),
+        oldData: req.body,
+        cities
+      });
+    }else {
+      const { name, surname, email, password, phone, address, cityId } = req.body;
 
-  const hashedPassword = hashSync(password, 10);
-
-  await db.User.create({
-    name: name.trim(),
-    surname: surname.trim(),
-    email: email.trim(),
-    password: hashedPassword,
-    phone: phone.trim(),
-    address: address.trim(),
-    cityId,
-    rolId: 2
-  });
-  return res.redirect("/users/login");
+      const hashedPassword = hashSync(password, 10);
+    
+      await db.User.create({
+        name: name.trim(),
+        surname: surname.trim(),
+        email: email.trim(),
+        password: hashedPassword,
+        phone: phone.trim(),
+        address: address.trim(),
+        cityId,
+        rolId: 2
+      });
+      return res.redirect("/users/login");
+    }
+   
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const login = async (req, res) => {
@@ -41,26 +61,33 @@ const login = async (req, res) => {
 
 const processLogin = async (req, res) => {
   try {
-    const { email } = req.body;
+    const errors = validationResult(req); 
+    if (!errors.isEmpty()) {
+      return res.render("users/login", {
+        errors: errors.mapped(),
+        oldData: req.body
+      });
+    }else {
+      const { email } = req.body;
 
-    const user = await db.User.findOne({
-      where: {
-        email
+      const user = await db.User.findOne({
+        where: {
+          email
+        }
+      });
+  
+      req.session.userLogin = {
+        id: user.id,
+        name: user.name,
+        rol: user.rolId
+      }; // Guardamos al usuario en sesión
+  
+      if (req.body.remember) {
+        res.cookie("userLoginHuellitas", req.session.userLogin, { maxAge: 1000 * 60 * 60 * 24 * 30 }); // 30 días
       }
-    });
-
-    req.session.userLogin = {
-      id: user.id,
-      name: user.name,
-      rol: user.rolId
-    }; // Guardamos al usuario en sesión
-
-    if (req.body.remember) {
-      res.cookie("userLoginHuellitas", req.session.userLogin, { maxAge: 1000 * 60 * 60 * 24 * 30 }); // 30 días
+  
+      return res.redirect("/users/profile");
     }
-
-    return res.redirect("/users/profile");
-
   } catch (error) {
     console.log(error);
   }
