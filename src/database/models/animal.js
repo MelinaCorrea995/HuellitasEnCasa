@@ -28,7 +28,8 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     image : DataTypes.STRING,
     specieId: DataTypes.INTEGER,
-    cityId: DataTypes.INTEGER
+    cityId: DataTypes.INTEGER,
+    adopted: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'Animal',

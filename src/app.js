@@ -4,13 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session'); // Importamos express-session
-const multer  = require('multer');
+const methodOverride = require('method-override'); // Importamos method-override
 
 // Importar rutas
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const adoptionRoutes = require('./routes/adoptions');
-const adminRoutes = require('./routes/admin');
+const animalRoutes = require('./routes/animals');
 const userLocals = require('./middleware/userLocals');
 // const cors = require('cors');
 
@@ -23,7 +23,7 @@ app.use(session({
   saveUninitialized: true,
 }));
 
-app.use(userLocals)
+app.use(userLocals);
 
 // Configuración de la vista
 app.set('views', path.join(__dirname, './views'));
@@ -36,7 +36,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.urlencoded({ extended: true }));
-
+app.use(methodOverride('_method')); // Utiliza el parámetro _method para enviar solicitudes PUT y DELETE desde formularios HTML
 
 // app.use(cors());
 
@@ -44,10 +44,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/adoptions', adoptionRoutes);
-app.use('/admin', adminRoutes);
+app.use('/animals', animalRoutes);
 
 // Manejador de errores 404
 app.use(function(req, res, next) {
+  next(createError(404));
 });
 
 // Manejador de errores
@@ -57,5 +58,4 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-console.log("servidor corriendo en :http://localhost:3000");
 module.exports = app;

@@ -18,9 +18,7 @@ module.exports = {
     res.render("animals/adoptStories")
   },
   preadoptForm: (req, res) => {
-    const datos = req.body;
-    console.log('Formulario preadopción recibido:', datos);
-    res.render('animals/preadoptThanks', { nombre: datos.nombre });
+    res.render('animals/preadoptThanks');
   }, 
 
   

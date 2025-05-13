@@ -17,7 +17,6 @@ const userLoginValidator = [
                 }
             })
             .catch((error) => {
-                console.log(error);       
                 return Promise.reject(
                     new Error(error ? error.message : "Error al verificar las credenciales")
                 );

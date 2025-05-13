@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<%- include('../partials/head.admin.ejs') %>
+
+    <body>
+        <%- include('../partials/header.admin.ejs') %>
+            <div class="container">
+                <div class="d-flex align-items-center flex-column flex-md-row justify-content-between">
+                    <h1 class="fs-3">Lista de Usuarios</h1>
+
+                </div>
+                <table class="table ">
+                    <thead class="thead-dark ">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Email</th>
+                            <th>Teléfono</th>
+                            <th>Ciudad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% users.forEach(function(user) { %>
+                            <tr>
+                                <td>
+                                    <%= user.id %>
+                                </td>
+                                <td>
+                                    <%= user.name %>
+                                </td>
+                                <td>
+                                    <%= user.surname %>
+                                </td>
+                                <td>
+                                    <%= user.email %>
+                                </td>
+                                <td>
+                                    <%= user.phone %>
+                                </td>
+                                <td>
+                                    <%= user.city.name %> (<%= user.city.province %> )
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-danger" style="cursor: pointer;"><i
+                                        class="fas fa-trash-alt"></i> Borrar</a>
+                                    <button class="btn btn-sm btn-danger" style="cursor: pointer;"><i
+                                            class="fas fa-trash-alt"></i> Borrar</a>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+
+    </body>
+
+</html>
