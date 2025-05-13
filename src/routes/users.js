@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
-const { register, login, showProfile, processRegister, processLogin, logout } = require('../controllers/userController');
+const { list, register, login, showProfile, processRegister, processLogin, logout } = require('../controllers/userController');
 const isAuthenticated = require('../middleware/isAuthenticated');
 
+/* GET users listing. */
+router.get('/', list);
 // GET /users/register
 router.get("/register", register);
 // POST /users/register

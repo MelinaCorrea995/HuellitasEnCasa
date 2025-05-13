@@ -3,27 +3,35 @@ const express = require('express');
 const router = express.Router();
 
 const {
-  createAnimal,
-  getAnimals,
-  getAnimalById,
-  updateAnimal,
-  deleteAnimal
+  add,
+  create,
+  list,
+  detail,
+  edit,
+  update,
+  remove
 } = require("../controllers/animalController"); // Importar desde adminController
+const uploadFile = require('../middleware/uploadFile');
 
 // Ruta para obtener todos los animales (Leer)
-router.get('/', getAnimals);
+router.get('/', list);
 
 // Ruta para obtener un animal por su ID (Leer)
-router.get('/:id', getAnimalById);
+router.get('/detail/:id', detail);
 
 // Ruta para crear un nuevo animal (Crear)
-router.post('/', createAnimal);
+router.get('/create', add);
+
+// Ruta para crear un nuevo animal (Crear)
+router.post('/create', uploadFile.single('image'), create);
+
+router.get('/edit/:id', edit);
 
 // Ruta para actualizar un animal por su ID (Actualizar)
-router.put('/:id', updateAnimal);
+router.put('/update/:id', uploadFile.single('image'), update);
 
 // Ruta para eliminar un animal por su ID (Eliminar)
-router.delete('/:id', deleteAnimal);
+router.delete('/remove/:id', remove);
 
 module.exports = router;
 
