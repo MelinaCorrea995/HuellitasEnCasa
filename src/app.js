@@ -12,6 +12,7 @@ const usersRouter = require('./routes/users');
 const adoptionRoutes = require('./routes/adoptions');
 const animalRoutes = require('./routes/animals');
 const userLocals = require('./middleware/userLocals');
+const apisRouter = require('./routes/api');
 // const cors = require('cors');
 
 var app = express();
@@ -45,6 +46,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/adoptions', adoptionRoutes);
 app.use('/animals', animalRoutes);
+app.use('/api', apisRouter);
 
 // Manejador de errores 404
 app.use(function(req, res, next) {
