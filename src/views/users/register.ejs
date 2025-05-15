@@ -72,7 +72,7 @@
           <select id="text" name="cityId" >
             <option value="" hidden selected>Seleccione...</option>
             <% cities.forEach(city => { %>
-             <option value="<%= city.id %>"><%= city.name %> / <%= city.province %> </option>
+            <option value="<%= city.id %>"><%= city.name %> / <%= city.province %> </option>
             <% }) %>
           </select>
           <button class="btn-submit" type="submit">Enviar</button>

@@ -69,7 +69,7 @@ const processRegister = async (req, res) => {
       });
       return res.redirect("/users/login");
     }
-   
+  
   } catch (error) {
     console.log(error);
   }
