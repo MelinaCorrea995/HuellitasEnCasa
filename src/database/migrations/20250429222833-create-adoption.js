@@ -27,6 +27,27 @@ module.exports = {
           key: 'id'
         }
       },
+      status : {
+        type: Sequelize.ENUM('En proceso','Cancelada','Confirmada')
+      },
+      reasons : {
+        type: Sequelize.TEXT
+      },
+      dwelling : {
+        type : Sequelize.ENUM('Casa','Departamento','PH','Quinta')
+      },
+      rent : {
+        type : Sequelize.BOOLEAN
+      },
+      petsAllowed :{
+        type : Sequelize.BOOLEAN
+      },
+      allergy : {
+        type : Sequelize.BOOLEAN
+      },
+      underTreatment : {
+        type : Sequelize.BOOLEAN
+      },
       dateAdoption: {
         type: Sequelize.DATE
       },

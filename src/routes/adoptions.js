@@ -1,8 +1,16 @@
-// adminController.js contiene las funciones que se encargan de manejar las solicitudes HTTP para la administración de animales. En este caso, se encargan de mostrar la página de administración, crear un nuevo animal, editar un animal existente y eliminar un animal
 const express = require('express');
 const router = express.Router();
+const path = require('path');
+const animals = require(path.join(__dirname, '../data/db.json')); // Ruta al JSON con los datos de animales
+const adoptionController = require('../controllers/adoptionController');
 
+
+// Ruta para mostrar los detalles de un animal 
+router
+    .get('/preAdopt/:id', adoptionController.preAdopt)
+    .post('/preAdopt/:id', adoptionController.processPreAdoption)
 
 module.exports = router;
+
 
 

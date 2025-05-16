@@ -9,8 +9,8 @@ const methodOverride = require('method-override'); // Importamos method-override
 // Importar rutas
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const adoptionRoutes = require('./routes/adoptions');
-const animalRoutes = require('./routes/animals');
+const adoptionsRoutes = require('./routes/adoptions');
+const animalsRoutes = require('./routes/animals');
 const userLocals = require('./middleware/userLocals');
 // const cors = require('cors');
 
@@ -43,8 +43,8 @@ app.use(methodOverride('_method')); // Utiliza el parámetro _method para enviar
 // Rutas
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/adoptions', adoptionRoutes);
-app.use('/animals', animalRoutes);
+app.use('/adoptions', adoptionsRoutes);
+app.use('/animals', animalsRoutes);
 
 // Manejador de errores 404
 app.use(function(req, res, next) {

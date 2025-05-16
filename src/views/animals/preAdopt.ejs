@@ -1,84 +1,159 @@
 <!DOCTYPE html>
 <html lang="es-AR">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+<%- include ('../partials/head') %>
 
-<!-- <%- include ('../partials/head') %> -->
-<head>
-  <%- include ('../partials/head') %>
-  <!-- <link 
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
-    rel="stylesheet" 
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoYz1HIcje39Wm4jDKdf19U8gI4UOzvEnJmZQ5stwEULTy" 
-    crossorigin="anonymous" /> -->
-</head>
-<body>
-  <%- include ('../partials/header') %>
-  <!-- Formulario de pre-adopción -->
-  <main class="formulario">
-    <h2>¡Formulario pre-adopción!</h2>
-    <form action="/animals/preAdopt/adoptDetail" method="POST">
-    <label for="personaje">¿A quién te gustaría adoptar?</label>
-    <select id="personaje" name="personaje">
-      <option value="Aragorn">Aragorn</option>
-      <option value="Dooku">Dooku</option>
-      <option value="Boromir">Boromir</option>
-      <option value="Gala">Gala</option>
-      <option value="Gandalf">Gandalf</option>
-      <option value="Guts">Guts</option>
-      <option value="Legolas">Legolas</option>
-      <option value="Nessa">Nessa</option>
-      <option value="Padme">Padme</option>
-    </select>
-    <h3>Contanos sobre vos</h3>
-    <!-- Registro -->
-    <label for="username">Nombre y apellido:</label>
-    <input type="text" name="nombre" placeholder=" Nombre y apellido" required />
-    <label for="username">Edad:</label>
-    <input type="text" name="edad" placeholder="Ingresa tu edad" required />
-    <label for="Domicilio">Dirección:</label>
-    <input type="text" id="Domicilio" name="Domicilio" placeholder="Ingresa tu dirección" required />
-    <label for="Domicilio">Localidad:</label>
-    <input type="text" id="Localidad" name="Localidad" placeholder="Ingresa tu localidad" />
-    <label for="Email">Correo electronico:</label>
-    <input type="email" name="Email" id="email" placeholder="Email">
-    <input type="password" name="password" />
-    <label for="motivo">¿Por qué motivo quieres adoptar?</label>
-    <textarea id="motivo" name="motivo" rows="5" placeholder="Contanos por qué querés adoptar"></textarea>
+  <body>
+    <%- include ('../partials/header') %>
+      <main>
+        <h2>¡Formulario pre-adopción!</h2>
+        <form action="/adoptions/preAdopt/<%= animal.id %>" method="POST" class="row">
+          <div class="col-12 col-lg-4 mb-5">
+            <h3>Estas adoptando a <%= animal.name %>
+            </h3>
+            <hr>
+            <img width="100%" src="/images/<%= animal.image %> " alt="">
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <h3>Contanos sobre vos</h3>
+            <hr>
+            <div class="mb-3">
+              <input style="width: 100%;" type="text" name="name" placeholder=" Tu nombre" id="name" />
+            </div>
+            <div class="mb-3">
+              <input style="width: 100%;" type="text" name="surname" placeholder=" Tu apellido" id="surname" />
+            </div>
+            <div class="mb-3">
+              <input style="width: 100%;" type="email" name="email" id="email" placeholder="Email de contacto">
+            </div>
+            <div class="mb-3">
+              <input style="width: 100%;" type="number" id="phone" name="phone" placeholder="Ingresa tu teléfono" />
+            </div>
+            <div class="mb">
+              <textarea style="width: 100%;" id="reasons" name="reasons" rows="5"
+                placeholder="Contanos por qué querés adoptar"></textarea>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <h3>Contanos sobre tu vivienda</h3>
+            <hr>
+            <div class="mb-4">
+              <div style="display: flex; align-items: center; gap: 10px; justify-content: space-between;">
+                <div>
+                  <label for="dwelling">¿Qué tipo de vivienda tenés?</label>
+                  <div style="display: flex; gap: 10px; justify-content: center;">
+                    <input name="rent" class="form-check-input" style="width: 18px;" type="checkbox" value="1"
+                      id="checkDefault">
+                    <label class="form-check-label" for="checkDefault">
+                      Alquilo
+                    </label>
+                  </div>
+                </div>
+                <select id="dwelling" name="dwelling" style="width: 60%;">
+                  <option value="Casa">Casa</option>
+                  <option value="Departamento">Departamento</option>
+                  <option value="PH">PH</option>
+                  <option value="Quinta">Quinta</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-4">
+              <div style="display: flex; align-items: center; gap: 20px; justify-content: space-between;">
+                <label style="text-align: start;">¿Se permiten mascotas donde vives?</label>
+                <div style="display: flex; gap: 20px; align-items: center;">
+                  <div style="display: flex; gap: 10px; justify-content: center;">
+                    <input name="petsAllowed" class="form-check-input" style="width: 18px;" type="radio" value="1"
+                      id="checkDefault">
+                    <label class="form-check-label" for="checkDefault">
+                      Sì
+                    </label>
+                  </div>
+                  <div style="display: flex; gap: 10px; justify-content: center;">
+                    <input name="petsAllowed" class="form-check-input" style="width: 18px;" type="radio" value="0"
+                      id="checkDefault">
+                    <label class="form-check-label" for="checkDefault">
+                      No
+                    </label>
+                  </div>
+                </div>
+              </div>
 
-    <h3>Contanos sobre tu vivienda</h3>
-    <label for="tipo_vivienda">¿Qué tipo de vivienda tenés?</label>
-    <select id="tipo_vivienda" name="tipo_vivienda">
-      <option value="casa">Casa</option>
-      <option value="departamento">Departamento</option>
-      <option value="PH">PH</option>
-      <option value="quinta">Quinta</option>
-    </select>
-    <label for="vivienda_alquiler">
-      Si alquilas, ¿Se permiten mascotas donde estas?</label>
-    <select id="vivienda_alquiler" name="vivienda_alquiler">
-      <option value="sí">Sí</option>
-      <option value="no">No</option>
-      <option value="desconoce">Desconoce</option>
-    </select>
-    <p>¿Alguien en tu hogar tiene alergia a perros o gatos?</p>
-    <input type="text" id="" name="" placeholder="Indica si con medicación es tratable" />
-    <!-- descripcion al finalizar el registro -->
-    <div class="descripcion">
-      <p>
-        Hasta acá llegó el formulario de adopción. Habiendo leído los
-        requisitos y completado el formulario,¿Sentís que estás dispuesto a
-        adoptar responsablemente darle el hogar y la vida que merece?
-        Nosotras buscamos adopciones responsables y para toda la vida. Una mascota no
-        se descarta,no se regala,no se maltrata y no se abandona.
-      </p>
-    </div>
-      <button class="boton-enviar" type="button"onclick="window.history.back();">Volver</button>
-      <button class="boton-enviar" type="submit">Enviar</button>
-    </form>
-  </main>
-  <!-- Pie de página -->
-  <%- include ('../partials/footer') %>
-  <!-- Bootstrap JS -->
-  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+
+            </div>
+            <div class="mb-4">
+              <div style="display: flex; align-items: center; gap: 20px; justify-content: space-between;">
+                <label style="text-align: start;">¿Alguien en tu hogar tiene alergia a perros o gatos?</label>
+                <div style="display: flex; gap: 20px; align-items: center;">
+                  <div style="display: flex; gap: 10px; justify-content: center;">
+                    <input name="allergy" class="form-check-input" style="width: 18px;" type="radio" value="1"
+                      id="checkDefault">
+                    <label class="form-check-label" for="checkDefault">
+                      Sì
+                    </label>
+                  </div>
+                  <div style="display: flex; gap: 10px; justify-content: center;">
+                    <input name="allergy" class="form-check-input" style="width: 18px;" type="radio" value="0"
+                      id="checkDefault">
+                    <label class="form-check-label" for="checkDefault">
+                      No
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-4">
+              <div style="display: flex; align-items: center; gap: 20px;justify-content: space-between;">
+                <label style="text-align: start;">En caso afirmativo ¿recibe tratamiento?</label>
+                <div style="display: flex; gap: 20px; align-items: center;">
+                  <div style="display: flex; gap: 10px; justify-content: center;">
+                    <input name="underTreatment" class="form-check-input" style="width: 18px;" type="radio" value="1"
+                      id="checkDefault">
+                    <label class="form-check-label" for="checkDefault">
+                      Sì
+                    </label>
+                  </div>
+                  <div style="display: flex; gap: 10px; justify-content: center;">
+                    <input name="underTreatment" class="form-check-input" style="width: 18px;" type="radio" value="0"
+                      id="checkDefault">
+                    <label class="form-check-label" for="checkDefault">
+                      No
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clas my-5">
+              <p
+                style="text-align: start; border: 1px gray solid; padding: 10px; background-color: rgba(255, 255, 255, 0.5);">
+                Hasta acá llegó el formulario de adopción. Habiendo leído los
+                requisitos y completado el formulario,¿Sentís que estás dispuesto a
+                adoptar responsablemente darle el hogar y la vida que merece?
+                Nosotras buscamos adopciones responsables y para toda la vida. Una mascota no
+                se descarta,no se regala,no se maltrata y no se abandona.
+              </p>
+              <div class="d-flex gap-2 justify-content-center mt-5">
+                <button class="btn btn-secondary" type="button" onclick="window.history.back();">No estoy seguro
+                  todavía</button>
+                <button class="btn btn-dark" type="submit">Sí. Quiero adoptar</button>
+              </div>
+
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+        </form>
+      </main>
+      <!-- Pie de página -->
+      <%- include ('../partials/footer') %>
+        <!-- Bootstrap JS -->
+        <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
@@ -87,6 +162,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script> -->
-</body>
+  </body>
 
 </html>

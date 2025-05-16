@@ -15,13 +15,28 @@ module.exports = {
         }
     },
 
-    // Obtener un animal por ID
-    detail: (req, res) => {
-        const animal = animals.find(a => a.id === parseInt(req.params.id));
-        if (!animal) {
-            return res.status(404).json({ message: 'Animal no encontrado' });
+    showAll: async (req, res) => {
+        try {
+            const animals = await db.Animal.findAll({
+                include: ['city']
+            })
+            return res.render("animals/show-all", { animals })
+        } catch (error) {
+            console.log(error);
+
         }
-        res.status(200).json({ data: animal });
+    },
+
+    // Obtener un animal por ID
+    detail: async (req, res) => {
+        try {
+            const animal = await db.Animal.findByPk(req.params.id, {
+                include: ['city', 'specie']
+            })
+            return res.render("animals/animalDetail", { animal })
+        } catch (error) {
+            console.log(error);
+        }
     },
 
     add: async (req, res) => {

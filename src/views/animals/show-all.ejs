@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es-AR">
  
-  <%- include('partials/head') %>
+  <%- include('../partials/head') %>
 <style>
   /* Container needed to position the overlay. Adjust the width as needed */
 .container-card {
@@ -45,13 +45,10 @@
 </style>
 <body class="container">
 
-  <%- include('partials/header') %>
+  <%- include('../partials/header') %>
 
 <!-- Sección Banner  -->
 <div class="banner-container">
-  <div class="banner">
-    <img src="/images/banner-huellitas.png" alt="Banner-adopta-hoy" class="banner-img" />
-  </div>
 
   <main class="content">
     <section id="animal-container">
@@ -67,31 +64,10 @@
           <% }) %>
       </div>
     </section>
-    <section id="contacto">
-      <h1>Contacto</h1>
-      <p>Llena este formulario para ponernos en contacto con vos.</p>
-      <div class="caja-formulario">
-        <form id="formulario">
-          <label for="name">Nombre Completo:</label>
-          <input class="formulario-input" type="text" id="name" name="name" placeholder="Nombre y apellido" />
-          <label for="email">Email:</label>
-          <input class="formulario-input" type="email" name="email" id="email" placeholder="Email" />
-          <label for="telefono">Teléfono:</label>
-          <input class="formulario-input" type="tel" name="telefono" id="telefono" placeholder="Número de teléfono" />
-          <label for="asunto">Asunto:</label>
-          <input class="formulario-input" type="text" name="asunto" id="asunto"
-            placeholder="Contanos por qué nos contactas" />
-          <label for="mensaje">Tu mensaje</label>
-          <textarea class="formulario-input" name="mensaje" id="mensaje" placeholder="Deja tu mensaje, duda o consulta"
-            required></textarea>
-          <button class="boton-enviar" type="submit">Enviar</button>
-          <button class="boton-reset" type="reset">Borrar</button>
-        </form>
-      </div>
-    </section>
+  
   </main>
 
-  <%- include('partials/footer') %>
+  <%- include('../partials/footer') %>
 
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
