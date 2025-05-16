@@ -11,12 +11,27 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Adoption.belongsTo(models.User, {
+        foreignKey: 'userId',
+        as: 'user'
+      });
+      Adoption.belongsTo(models.Animal, {
+        foreignKey: 'animalId',
+        as: 'animal'
+      })
     }
   }
   Adoption.init({
     userId: DataTypes.INTEGER,
     animalId: DataTypes.INTEGER,
-    dateAdoption: DataTypes.DATE
+    status: DataTypes.ENUM('En proceso','Cancelada','Confirmada'),
+    reasons: DataTypes.TEXT,
+    dwelling: DataTypes.ENUM('Casa','Departamento','PH','Quinta'),
+    rent: DataTypes.BOOLEAN,
+    petsAllowed : DataTypes.BOOLEAN,
+    allergy : DataTypes.BOOLEAN,
+    underTreatment : DataTypes.BOOLEAN,
+    dateAdoption: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'Adoption',

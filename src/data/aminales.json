@@ -36,7 +36,7 @@
     "age": "1 año",
     "zone": "Polvorines",
     "description": "Gala es una gatita tranquila y sociable que busca un hogar lleno de amor.",
-    "image": "galadriel-adopcion.jpg",
+    "image": "galadriel-adopcion.jpeg",
     "adoptado":false,
     "specie" : 2
   },
@@ -56,7 +56,7 @@
     "age": "6 meses",
     "zone": "Pilar",
     "description": "Guts tiene una historia difícil, pero su espíritu sigue siendo inquebrantable. Fue adoptado hace un tiempo, pero lamentablemente su familia anterior lo dejó en un parque sin avisar a la protectora. Gracias a su chip, pudimos traerlo de vuelta con nosotros. A pesar de lo que ha pasado, Guts no perdió su fe en las personas. Está listo para encontrar un hogar lleno de amor y compromiso, donde realmente lo valoren como se merece. Este pequeño luchador solo necesita una nueva oportunidad para demostrar lo increíble que es como compañero.",
-    "image": "-guts-adopcion.jpg",
+    "image": "guts-adopcion.jpg",
     "adoptado":false,
     "specie" : 2
   },
@@ -86,7 +86,7 @@
     "age": "1 año",
     "zone": "Devoto",
     "description": "Buscamos una familia para Padme que le de toda la atención y el amor que merece. Necesitaría una casa donde fuese hija única y sin niños",
-    "image": "padme-adopcion.jpg",
+    "image": "padme-adopcion.jpeg",
     "adoptado": false,
     "specie" : 1
 
@@ -127,7 +127,7 @@
     "age": "6 meses",
     "zone": "Hurlingham",
     "description": " Mi nombre es Calliope pero mi familia me dice callie , fui rescatada siendo una bebe en la  calle con hambre y con mucho miedo.El refugio de dio mucho amor y todos se enamoraron de mi por lo regalona y juguetona que soy .La familia que me adopto me trata como una reina junto ami hermana gatuna India y mi hermano Cocon , soy muy feliz con ellos.",
-    "image": "simba-adopcion.jpg",
+    "image": "calliope-adopcion.jpg",
     "adoptado": true,
     "specie" : 1
   },

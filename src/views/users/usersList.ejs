@@ -40,21 +40,60 @@
                                     <%= user.phone %>
                                 </td>
                                 <td>
-                                    <%= user.city.name %> (<%= user.city.province %> )
+                                    <% if (user.city) { %>
+                                        <%= user.city.name %> (<%= user.city.province %> )
+                                    <% } %>
                                 </td>
                                 <td>
-                                    <button class="btn btn-sm btn-danger" style="cursor: pointer;"><i
-                                        class="fas fa-trash-alt"></i> Borrar</a>
-                                    <button class="btn btn-sm btn-danger" style="cursor: pointer;"><i
-                                            class="fas fa-trash-alt"></i> Borrar</a>
+                                    <div class="d-flex gap-2">
+                                        <button onclick="toggleAdminUser('<%= user.id%>')" title="Usuario administrador"
+                                            class="btn btn-sm <%= user.roleId == 1 ?  'btn-warning' : 'btn-secondary'%>"
+                                            style="cursor: pointer;"><i class="fas fa-user-cog"></i></a>
+                                            <button onclick="toggleValidateUser('<%= user.id%>')"
+                                                title="Usuario validado"
+                                                class="btn btn-sm <%= user.validated ?  'btn-success' : 'btn-secondary'%>"
+                                                style="cursor: pointer;"><i class="fas fa-user-check"></i></a>
+                                                <button title="Dar de baja" class="btn btn-sm btn-danger"
+                                                    style="cursor: pointer;"><i class="fas fa-trash-alt"></i></a>
+                                    </div>
                                 </td>
                             </tr>
                             <% }); %>
                     </tbody>
                 </table>
             </div>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+                crossorigin="anonymous"></script>
+            <script>
+                const toggleValidateUser = (userId) => {
+                    fetch(`/api/users/${userId}/toggle-validate`, {
+                        method: 'PUT',
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                window.location.reload();
+                            } else {
+                                console.error('Error al cambiar el estado de validación:', data.message);
+                            }
+                        })
+                }
 
+                const toggleAdminUser = (userId) => {
+                    fetch(`/api/users/${userId}/toggle-admin`, {
+                        method: 'PUT',
+                    })
+                       .then(response => response.json())
+                       .then(data => {
+                            if (data.success) {
+                                window.location.reload();
+                            } else {
+                                console.error('Error al cambiar el rol:', data.message);
+                            }
+                       })
+                }
+            </script>
     </body>
 
 </html>

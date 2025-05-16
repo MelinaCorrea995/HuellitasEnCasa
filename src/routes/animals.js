@@ -9,7 +9,8 @@ const {
   detail,
   edit,
   update,
-  remove
+  remove,
+  showAll
 } = require("../controllers/animalController"); // Importar desde adminController
 const uploadFile = require('../middleware/uploadFile');
 
@@ -32,6 +33,8 @@ router.put('/update/:id', uploadFile.single('image'), update);
 
 // Ruta para eliminar un animal por su ID (Eliminar)
 router.delete('/remove/:id', remove);
+
+router.get('/list', showAll); // Agregar esta línea para la ruta lis
 
 module.exports = router;
 

@@ -99,14 +99,14 @@ const processLogin = async (req, res) => {
       req.session.userLogin = {
         id: user.id,
         name: user.name,
-        rol: user.rolId
+        rol: user.roleId
       }; // Guardamos al usuario en sesión
   
       if (req.body.remember) {
         res.cookie("userLoginHuellitas", req.session.userLogin, { maxAge: 1000 * 60 * 60 * 24 * 30 }); // 30 días
       }
   
-      return res.redirect("/users/profile");
+      return res.redirect(user.roleId == 1 ? "/admin" : "/users/profile");
     }
   } catch (error) {
     console.log(error);

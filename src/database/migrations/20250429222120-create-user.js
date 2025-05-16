@@ -21,7 +21,7 @@ module.exports = {
       image: {
         type: Sequelize.STRING
       },
-      validate: {
+      validated: {
         type: Sequelize.BOOLEAN,
         defaultValue: false
       },

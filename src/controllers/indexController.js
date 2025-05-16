@@ -17,26 +17,31 @@ module.exports = {
     },
     admin : async (req,res) => {
         try {
-            const cities = await db.City.findAll({
-                include : ['animals', 'users']
-            })
-            const animalsCount = await db.Animal.count();
-            const usersCount = await db.User.count();
-            const animalInWaiting = await db.Animal.findOne({
-                where : {
-                    adopted : false
-                },
-                order : [
-                    ['createdAt', 'DESC']
-                ],
-                limit : 1,
-                include : ['city']
-            })
+            const [cities, animalsCount, usersCount, animalInWaiting, adoptionsCount] = await Promise.all([
+                db.City.findAll({
+                    include : ['animals', 'users']
+                }),
+                db.Animal.count(),
+                db.User.count(),
+                db.Animal.findOne({
+                    where : {
+                        adopted : false
+                    },
+                    order : [
+                        ['createdAt', 'DESC']
+                    ],
+                    limit : 1,
+                    include : ['city']
+                }),
+                db.Adoption.count()
+            ])
+           
             return res.render("admin", {
                 cities,
                 animalsCount,
                 usersCount,
-                animalInWaiting
+                animalInWaiting,
+                adoptionsCount
             });
 
         } catch (error) {

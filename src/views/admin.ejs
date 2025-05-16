@@ -8,69 +8,64 @@
 		<!-- Content Wrapper -->
 		<div id="content-wrapper" class="d-flex flex-column">
 
-			<!-- Main Content -->
 			<div id="content">
-
-				<!-- Topbar -->
                 <%- include('./partials/header.admin.ejs') %>
-
-				<!-- End of Topbar -->
-
-				<!-- Content Row Top -->
 				<div class="container-fluid">
-				
-					<!-- Content Row Movies-->
 					<div class="row">
-
-						<!-- Movies in Data Base -->
 						<div class="col-md-4 mb-4">
 							<div class="card border-left-primary shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Mascotas en adopción</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800"><%= animalsCount %> </div>
-										</div>
-										<div class="col-auto">
-                                            <i class="fa-solid fa-paw  fa-2x text-gray-300"></i>
+								<a href="/animals" style="color: inherit;">
+									<div class="card-body">
+										<div class="row no-gutters align-items-center">
+											<div class="col mr-2">
+												<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Mascotas en adopción</div>
+												<div class="h5 mb-0 font-weight-bold text-gray-800"><%= animalsCount %> </div>
+											</div>
+											<div class="col-auto">
+												<i class="fa-solid fa-paw  fa-2x text-gray-300"></i>
+											</div>
 										</div>
 									</div>
-								</div>
+								</a>
 							</div>
 						</div>
 
 						<!-- Total awards -->
 						<div class="col-md-4 mb-4">
 							<div class="card border-left-success shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div class="text-xs font-weight-bold text-success text-uppercase mb-1">Adopciones exitosas</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">79</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-award fa-2x text-gray-300"></i>
+								<a href="/adoptions/adoptionsRegister">
+									<div class="card-body">
+										<div class="row no-gutters align-items-center">
+											<div class="col mr-2">
+												<div class="text-xs font-weight-bold text-success text-uppercase mb-1">Registro de adopciones</div>
+												<div class="h5 mb-0 font-weight-bold text-gray-800"><%= adoptionsCount %></div>
+											</div>
+											<div class="col-auto">
+												<i class="fas fa-award fa-2x text-gray-300"></i>
+											</div>
 										</div>
 									</div>
-								</div>
+								</a>
 							</div>
 						</div>
 
 						<!-- Actors quantity -->
 						<div class="col-md-4 mb-4">
 							<div class="card border-left-warning shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Usuarios registrados
+								<a href="/users" style="color: inherit;">
+									<div class="card-body">
+										<div class="row no-gutters align-items-center">
+											<div class="col mr-2">
+												<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Usuarios registrados
+												</div>
+												<div class="h5 mb-0 font-weight-bold text-gray-800"><%= usersCount %> </div>
 											</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800"><%= usersCount %> </div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-user fa-2x text-gray-300"></i>
+											<div class="col-auto">
+												<i class="fas fa-user fa-2x text-gray-300"></i>
+											</div>
 										</div>
 									</div>
-								</div>
+								</a>
 							</div>
 						</div>
 					</div>
