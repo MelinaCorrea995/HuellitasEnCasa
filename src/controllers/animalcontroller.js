@@ -11,7 +11,6 @@ module.exports = {
             return res.render("animals/animalList", { animals })
         } catch (error) {
             console.log(error);
-
         }
     },
 
@@ -23,7 +22,6 @@ module.exports = {
             return res.render("animals/show-all", { animals })
         } catch (error) {
             console.log(error);
-
         }
     },
 

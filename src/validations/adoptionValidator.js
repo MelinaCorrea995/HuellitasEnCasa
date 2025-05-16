@@ -9,12 +9,16 @@ const adoptionValidator = [
     check("email")
         .notEmpty().withMessage("El email es requerido").bail()
         .isEmail().withMessage("El email debe ser válido").bail()
-        .custom((value) => {
+        .custom((value, {req}) => {
             return db.User.findOne({ where: { email: value } })
             .then((user) => {
-                if (user) {
+                if (user && user.password && !req.session.userLogin) {
                     return Promise.reject(
-                        new Error("El email ya está registrado")
+                        new Error("El email ya está registrado. Logueate para realizar una adopción.")
+                    )}
+                if (user && !user.validated) {
+                    return Promise.reject(
+                        new Error("El email ya está registrado. Completa tus datos para realizar una adopción.")
                     )}
                 })
             }),

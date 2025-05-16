@@ -8,7 +8,8 @@ module.exports = {
     try {
       const { id } = req.params;
       const animal = await db.Animal.findByPk(id);
-      return res.render('animals/preAdopt', { animal });
+      const user = await db.User.findByPk(req.session.userLogin?.id);
+      return res.render('adoptions/preAdopt', { animal, oldData : user });
 
     } catch (error) {
       console.log(error);
@@ -20,7 +21,7 @@ module.exports = {
       if (!errors.isEmpty()) {
         const { id } = req.params;
         const animal = await db.Animal.findByPk(id);
-        return res.render('animals/preAdopt', {
+        return res.render('adoptions/preAdopt', {
           errors,
           oldData: req.body,
           animal
@@ -53,7 +54,7 @@ module.exports = {
           allergy,
           underTreatment
         });
-        return res.redirect('/animals/preAdoptThanks/' + id);
+        return res.redirect('/adoptions/preAdoptThanks/' + id);
       }
      
     } catch (error) {
@@ -64,7 +65,7 @@ module.exports = {
     try {
       const { id } = req.params;
       const animal = await db.Animal.findByPk(id);
-      return res.render('preAdoptThanks', { animal });
+      return res.render('adoptions/preAdoptThanks', { animal });
     } catch (error) {
       console.log(error);
     }

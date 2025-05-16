@@ -19,16 +19,20 @@
             <h3>Contanos sobre vos</h3>
             <hr>
             <div class="mb-3">
-              <input style="width: 100%;" type="text" name="name" placeholder=" Tu nombre" id="name" value="<%= (locals.oldData && oldData.name) && oldData.name %>"/>
+              <input style="width: 100%;" type="text" name="name" placeholder=" Tu nombre" id="name"
+                value="<%= (locals.oldData && oldData.name) && oldData.name %>" />
             </div>
             <div class="mb-3">
-              <input style="width: 100%;" type="text" name="surname" placeholder=" Tu apellido" id="surname" value="<%= (locals.oldData && oldData.surname) && oldData.surname %>"/>
+              <input style="width: 100%;" type="text" name="surname" placeholder=" Tu apellido" id="surname"
+                value="<%= (locals.oldData && oldData.surname) && oldData.surname %>" />
             </div>
             <div class="mb-3">
-              <input style="width: 100%;" type="email" name="email" id="email" placeholder="Email de contacto" value="<%= (locals.oldData && oldData.email) && oldData.email %>"/>
+              <input style="width: 100%;" type="email" name="email" id="email" placeholder="Email de contacto"
+                value="<%= (locals.oldData && oldData.email) && oldData.email %>" />
             </div>
             <div class="mb-3">
-              <input style="width: 100%;" type="number" id="phone" name="phone" placeholder="Ingresa tu teléfono" value="<%= (locals.oldData && oldData.phone) && oldData.phone %>"/>
+              <input style="width: 100%;" type="number" id="phone" name="phone" placeholder="Ingresa tu teléfono"
+                value="<%= (locals.oldData && oldData.phone) && oldData.phone %>" />
             </div>
             <div class="mb">
               <textarea style="width: 100%;" id="reasons" name="reasons" rows="5"
@@ -38,12 +42,14 @@
               <div class="alert alert-danger">
                 <ul style="text-align: start; padding: 0;">
                   <% for (let error of errors.errors) { %>
-                    <li><i class="fas fa-times"></i> <%= error.msg %></li>
-                  <% } %>
+                    <li><i class="fas fa-times"></i>
+                      <%= error.msg %>
+                    </li>
+                    <% } %>
                 </ul>
               </div>
-            <% } %>
-           
+              <% } %>
+
           </div>
           <div class="col-12 col-md-6 col-lg-4">
             <h3>Contanos sobre tu vivienda</h3>
@@ -54,8 +60,8 @@
                   <label for="dwelling">¿Qué tipo de vivienda tenés?</label>
                   <div style="display: flex; gap: 10px; justify-content: center;">
                     <input name="rent" class="form-check-input" style="width: 18px;" type="checkbox" value="1"
-                      id="checkDefault">
-                    <label class="form-check-label" for="checkDefault">
+                      id="rent">
+                    <label class="form-check-label" for="rent">
                       Alquilo
                     </label>
                   </div>
@@ -74,15 +80,15 @@
                 <div style="display: flex; gap: 20px; align-items: center;">
                   <div style="display: flex; gap: 10px; justify-content: center;">
                     <input name="petsAllowed" class="form-check-input" style="width: 18px;" type="radio" value="1"
-                      id="checkDefault">
-                    <label class="form-check-label" for="checkDefault">
+                      id="petsAllowedYes">
+                    <label class="form-check-label" for="petsAllowedYes">
                       Sì
                     </label>
                   </div>
                   <div style="display: flex; gap: 10px; justify-content: center;">
                     <input name="petsAllowed" class="form-check-input" style="width: 18px;" type="radio" value="0"
-                      id="checkDefault">
-                    <label class="form-check-label" for="checkDefault">
+                      id="petsAllowedNot">
+                    <label class="form-check-label" for="petsAllowedNot">
                       No
                     </label>
                   </div>
@@ -97,15 +103,15 @@
                 <div style="display: flex; gap: 20px; align-items: center;">
                   <div style="display: flex; gap: 10px; justify-content: center;">
                     <input name="allergy" class="form-check-input" style="width: 18px;" type="radio" value="1"
-                      id="checkDefault">
-                    <label class="form-check-label" for="checkDefault">
+                      id="allergyYes">
+                    <label class="form-check-label" for="allergyYes">
                       Sì
                     </label>
                   </div>
                   <div style="display: flex; gap: 10px; justify-content: center;">
                     <input name="allergy" class="form-check-input" style="width: 18px;" type="radio" value="0"
-                      id="checkDefault">
-                    <label class="form-check-label" for="checkDefault">
+                      id="allergyNot">
+                    <label class="form-check-label" for="allergyNot">
                       No
                     </label>
                   </div>
@@ -118,15 +124,15 @@
                 <div style="display: flex; gap: 20px; align-items: center;">
                   <div style="display: flex; gap: 10px; justify-content: center;">
                     <input name="underTreatment" class="form-check-input" style="width: 18px;" type="radio" value="1"
-                      id="checkDefault">
-                    <label class="form-check-label" for="checkDefault">
+                      id="underTreatmentYes">
+                    <label class="form-check-label" for="underTreatmentYes">
                       Sì
                     </label>
                   </div>
                   <div style="display: flex; gap: 10px; justify-content: center;">
                     <input name="underTreatment" class="form-check-input" style="width: 18px;" type="radio" value="0"
-                      id="checkDefault">
-                    <label class="form-check-label" for="checkDefault">
+                      id="underTreatmentNot">
+                    <label class="form-check-label" for="underTreatmentNot">
                       No
                     </label>
                   </div>
