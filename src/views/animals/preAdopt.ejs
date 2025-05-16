@@ -19,21 +19,31 @@
             <h3>Contanos sobre vos</h3>
             <hr>
             <div class="mb-3">
-              <input style="width: 100%;" type="text" name="name" placeholder=" Tu nombre" id="name" />
+              <input style="width: 100%;" type="text" name="name" placeholder=" Tu nombre" id="name" value="<%= (locals.oldData && oldData.name) && oldData.name %>"/>
             </div>
             <div class="mb-3">
-              <input style="width: 100%;" type="text" name="surname" placeholder=" Tu apellido" id="surname" />
+              <input style="width: 100%;" type="text" name="surname" placeholder=" Tu apellido" id="surname" value="<%= (locals.oldData && oldData.surname) && oldData.surname %>"/>
             </div>
             <div class="mb-3">
-              <input style="width: 100%;" type="email" name="email" id="email" placeholder="Email de contacto">
+              <input style="width: 100%;" type="email" name="email" id="email" placeholder="Email de contacto" value="<%= (locals.oldData && oldData.email) && oldData.email %>"/>
             </div>
             <div class="mb-3">
-              <input style="width: 100%;" type="number" id="phone" name="phone" placeholder="Ingresa tu teléfono" />
+              <input style="width: 100%;" type="number" id="phone" name="phone" placeholder="Ingresa tu teléfono" value="<%= (locals.oldData && oldData.phone) && oldData.phone %>"/>
             </div>
             <div class="mb">
               <textarea style="width: 100%;" id="reasons" name="reasons" rows="5"
-                placeholder="Contanos por qué querés adoptar"></textarea>
+                placeholder="Contanos por qué querés adoptar"><%= (locals.oldData && oldData.reasons) && oldData.reasons %></textarea>
             </div>
+            <% if (locals.errors) { %>
+              <div class="alert alert-danger">
+                <ul style="text-align: start; padding: 0;">
+                  <% for (let error of errors.errors) { %>
+                    <li><i class="fas fa-times"></i> <%= error.msg %></li>
+                  <% } %>
+                </ul>
+              </div>
+            <% } %>
+           
           </div>
           <div class="col-12 col-md-6 col-lg-4">
             <h3>Contanos sobre tu vivienda</h3>

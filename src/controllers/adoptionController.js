@@ -1,4 +1,6 @@
-const db = require('../database/models')
+const { validationResult } = require('express-validator');
+const db = require('../database/models');
+const moment = require('moment');
 
 module.exports = {
 
@@ -12,61 +14,85 @@ module.exports = {
       console.log(error);
     }
   },
-  // TODO: validar que el email no esté registrado
   processPreAdoption: async (req, res) => {
     try {
-      const { id } = req.params;
-      const { name, email, phone, reasons, rent, dwelling, petsAllowed, allergy, underTreatment } = req.body;
-      let userId;
-      if (req.session.userLogin) {
-        userId = req.session.userLogin.id;
-      } else {
-        const user = await db.User.create({
-          name,
-          surname,
-          email,
-          phone,
-          rolId: 2
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        const { id } = req.params;
+        const animal = await db.Animal.findByPk(id);
+        return res.render('animals/preAdopt', {
+          errors,
+          oldData: req.body,
+          animal
         });
-        userId = user.id;
+      } else {
+        const { id } = req.params;
+        const { name, surname, email, phone, reasons, rent, dwelling, petsAllowed, allergy, underTreatment } = req.body;
+        let userId;
+        if (req.session.userLogin) {
+          userId = req.session.userLogin.id;
+        } else {
+          const user = await db.User.create({
+            name,
+            surname,
+            email,
+            phone,
+            rolId: 2
+          });
+          userId = user.id;
+        }
+  
+        await db.Adoption.create({
+          userId,
+          animalId: id,
+          status: 'En proceso',
+          reasons,
+          rent,
+          dwelling,
+          petsAllowed,
+          allergy,
+          underTreatment
+        });
+        return res.redirect('/animals/preAdoptThanks/' + id);
       }
-
-      await db.Adoption.create({
-        userId,
-        animalId: id,
-        status: 'En proceso',
-        reasons,
-        rent,
-        dwelling,
-        petsAllowed,
-        allergy,
-        underTreatment
-      });
      
-      return res.redirect('/animals/preadoptThanks');
     } catch (error) {
       console.log(error);
     }
   },
-  adoptDetail: (req, res) => {
-    const animalId = parseInt(req.params.id); // Captura el parámetro 'id' de la URL como número
-    const animal = animals.find(a => a.id === animalId); // Busca el animal por ID
-
-    if (animal) {
-      res.render('animals/adoptDetail', { animal }); // Renderiza la vista adoptDetail.ejs con los datos del animal encontrado
-    } else {
-      res.status(404).render('error', {
-        message: 'Animal no encontrado' // Página de error personalizada
-      });
+  preAdoptThanks: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const animal = await db.Animal.findByPk(id);
+      return res.render('preAdoptThanks', { animal });
+    } catch (error) {
+      console.log(error);
     }
   },
   adoptStories: (req, res) => {
     res.render("animals/adoptStories")
   },
-  preadoptForm: (req, res) => {
-    res.render('animals/preadoptThanks');
+  adoptionsRegister: async (req, res) => {
+    try {
+      const adoptions = await db.Adoption.findAll({
+        include: [
+          {
+            model: db.User,
+            as: 'user',
+            attributes: ['name', 'surname', 'email', 'phone']
+          },
+          {
+            model: db.Animal,
+            as: 'animal',
+            attributes: ['name', 'image']
+          }
+        ]
+      });
+      return res.render('adoptions/adoptionsList', { adoptions, moment });
+    } catch (error) {
+      console.log(error);
+    }
   },
-
 
   adoptProcess: async (req, res) => {
     try {

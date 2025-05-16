@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<%- include('../partials/head.admin.ejs') %>
+
+    <body>
+        <%- include('../partials/header.admin.ejs') %>
+            <div class="container">
+                <div class="d-flex align-items-center flex-column flex-md-row justify-content-between">
+                    <h1 class="fs-3">Registro de adopciones</h1>
+                </div>
+                <table class="table ">
+                    <thead class="thead-dark ">
+                        <tr>
+                            <th>ID</th>
+                            <th>Animal</th>
+                            <th>Adoptante</th>
+                            <th>Estado</th>
+                            <th>Fecha solicitud</th>
+                            <th>Fecha adopción</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% adoptions.forEach(function(adoption) { %>
+                            <tr>
+                                <td>
+                                    <%= adoption.id %>
+                                </td>
+                                <td>
+                                    <a href=""><%= adoption.animal.name %></a>
+                                </td>
+                                <td>
+                                    <a href="" data-bs-toggle="modal"
+                                    data-bs-target="#showModalUser<%= adoption.user.id %>">
+                                        <%= adoption.user.name %> <%= adoption.user.surname %>
+                                    </a>
+                                </td>
+                                <td>
+                                    <span class="badge text-bg-<%= adoption.status == "En proceso" ? 'warning' : adoption.status == "Cancelada" ? 'danger' : 'success' %>"> <%= adoption.status %></span>
+                                </td>
+                                <td>
+                                    <%= moment(adoption.createdAt).format('DD-MM-YY') %>
+                                </td>
+                                <td>
+                                    <%= adoption.date && moment(adoption.date).format('DD-MM-YY') %>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-info"><i class="fas fa-plus"></i> Detalles</button>
+                                    <button class="btn btn-sm btn-success -<%= adoption.status == "Cancelada" || adoption.status == "Confirmada" && 'disabled'%>"><i class="fas fa-thumbs-up"></i> Confirmar</button>
+                                    <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i> Rechazar</button>
+                                </td>
+                            </tr>
+                            <%- include('../partials/modalShowUser', {user: adoption.user}) %>                          
+                            <% }); %>
+                    </tbody>
+                </table>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    </body>
+
+</html>

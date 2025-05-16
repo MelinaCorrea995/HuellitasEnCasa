@@ -40,7 +40,9 @@
                                     <%= user.phone %>
                                 </td>
                                 <td>
-                                    <%= user.city.name %> (<%= user.city.province %> )
+                                    <% if (user.city) { %>
+                                        <%= user.city.name %> (<%= user.city.province %> )
+                                    <% } %>
                                 </td>
                                 <td>
                                     <div class="d-flex gap-2">

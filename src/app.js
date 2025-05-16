@@ -46,6 +46,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/adoptions', adoptionsRoutes);
 app.use('/animals', animalsRoutes);
+app.use('/api', apisRouter);
 
 // Manejador de errores 404
 app.use(function(req, res, next) {

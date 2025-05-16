@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+ 
+  <%- include('partials/head') %>
+
+<body class="container">
+
+  <%- include('partials/header') %>
+
+<!-- Sección Banner  -->
+<div class="banner-container">
+  <main class="content">
+    <h1 class="title">¡Gracias por querer adoptar a <%= animal.name %>!</h1>
+    <p style="margin: 20px 0; font-size: 1.4rem;">Evaluaremos tu solicitud y te contactaremos para continuar con el proceso de adopción.</p>
+    <div class="d-flex justify-content-center">
+        <img src="/images/<%= animal.image %>" alt="foto de <%= animal.name %>"/>
+      </div>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+
+</html>
