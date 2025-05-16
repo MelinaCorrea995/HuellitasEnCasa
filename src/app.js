@@ -12,6 +12,7 @@ const usersRouter = require('./routes/users');
 const adoptionsRoutes = require('./routes/adoptions');
 const animalsRoutes = require('./routes/animals');
 const userLocals = require('./middleware/userLocals');
+const apisRouter = require('./routes/api');
 // const cors = require('cors');
 
 var app = express();
